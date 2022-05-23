@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>convSearchPython.utils.data_utils API documentation</title>
+<meta name="description" content="Utilities for data manipulation" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML" integrity="sha256-kZafAc6mZvK3W3v1pHOcUix30OHQN6pU/NO2oFkqZVw=" crossorigin></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>convSearchPython.utils.data_utils</code></h1>
+</header>
+<section id="section-intro">
+<p>Utilities for data manipulation</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;Utilities for data manipulation&#34;&#34;&#34;
+import re
+from typing import Dict, List, Generator, Union, Iterable, Any, Set, Callable
+
+import pandas as pd
+from pandas import DataFrame
+
+from convSearchPython.dataset import Conversations
+from convSearchPython.utils.evaluation import evaluation_key
+
+
+def measures_pivot_table(data: pd.DataFrame) -&gt; pd.DataFrame:
+    &#34;&#34;&#34;Manipulate a dataFrame so the measures are in columns&#34;&#34;&#34;
+    return data.pivot(index=&#39;name&#39;, columns=&#39;measure&#39;, values=&#39;value&#39;)
+
+
+def pyterrier2trec(run: pd.DataFrame, name=None) -&gt; pd.DataFrame:
+    &#34;&#34;&#34;Convert a pyterrier run to the trec equivalent&#34;&#34;&#34;
+    run[&#39;second&#39;] = [&#39;Q0&#39;] * len(run.index)
+    if name is not None:
+        run[&#39;name&#39;] = [name] * len(run.index)
+    else:
+        if &#39;name&#39; not in run.columns:
+            raise Exception(&#39;needs to specify name&#39;)
+
+    return run[[&#39;qid&#39;, &#39;second&#39;, &#39;docno&#39;, &#39;rank&#39;, &#39;score&#39;, &#39;name&#39;]]
+
+
+def limit_per_query(data: DataFrame, limit: int) -&gt; DataFrame:
+    &#34;&#34;&#34;Limit the number of result per query&#34;&#34;&#34;
+    parts = []
+    for _, group in data.groupby([&#39;qid&#39;, &#39;name&#39;]):
+        group = group.reset_index()
+        if len(group) &lt;= limit:
+            parts.append(group)
+        else:
+            parts.append(group[:limit])
+    return pd.concat(parts)
+
+
+def limit_per_qid(data: DataFrame, limit: int) -&gt; DataFrame:
+    &#34;&#34;&#34;Limit the number of result per query&#34;&#34;&#34;
+    parts = []
+    for _, group in data.groupby(&#39;qid&#39;):
+        group = group.reset_index()
+        if len(group) &lt;= limit:
+            parts.append(group)
+        else:
+            parts.append(group[:limit])
+    return pd.concat(parts)
+
+
+def guess_type(value: str, no_bool=False,
+               no_str=False, no_float=False,
+               allow_quote_for_str=False) -&gt; Union[str, int, float, bool]:
+    &#34;&#34;&#34;Try to guess the type of value (str, int, float or bool) and return it according&#34;&#34;&#34;
+    value = str(value)
+    if allow_quote_for_str:
+        v = value.strip()
+        if v.startswith(&#39;&#34;&#39;) and v.endswith(&#39;&#34;&#39;):
+            return v[1:-1]
+    if not no_bool:
+        low_val = value.lower().strip()
+        if low_val == &#39;true&#39;:
+            return True
+        if low_val == &#39;false&#39;:
+            return False
+    try:
+        return int(value)
+    except ValueError:
+        if no_float:
+            if no_str:
+                raise
+            return value
+        try:
+            return float(value)
+        except ValueError:
+            if no_str:
+                raise
+            return value
+
+
+def queries_conversation_splitter(queries: DataFrame, conversation: Conversations) \
+        -&gt; Generator[DataFrame, None, None]:
+    for conv in conversation.values():
+        q = queries[queries[&#39;qid&#39;].isin(conv)]
+        q.reset_index(inplace=True, drop=True)
+        yield q
+
+
+def replace_col_with_history(name: str, values: Iterable[Any], df: pd.DataFrame, inplace=False) -&gt; pd.DataFrame:
+    &#34;&#34;&#34;
+    Replace (or add) a column with specified values and name to the DataFrame
+    If the column already exists, save the old one as `name_0`.
+    If name_0 is already presents it will be renamed as name_1 (and so on...).
+
+    Args:
+        name: name of the column
+        values: column values
+        df: DataFrame to edit
+        inplace: if True, edit the DataFrame, else return a new one
+
+    Returns:
+        The edited DataFrame or a new one
+    &#34;&#34;&#34;
+    if not inplace:
+        df = df.copy()
+
+    history: Set[str] = set(x for x in df.columns if x == name or x.startswith(f&#39;{name}_&#39;))
+    if name not in history:
+        df[name] = values
+        return df
+
+    history.remove(name)
+    suffixes = []
+    for h in history:
+        parts = h.split(&#39;_&#39;)
+        if len(parts) != 2:
+            continue
+        s = parts[1]
+        try:
+            suffixes.append(int(s))
+        except ValueError:
+            continue
+    suffixes.sort(reverse=True)
+    for i in suffixes:
+        df[f&#39;{name}_{i+1}&#39;] = df[f&#39;{name}_{i}&#39;]
+    df[f&#39;{name}_0&#39;] = df[name]
+    df[name] = values
+    return df
+
+
+def sort_results_update_rank(results: DataFrame, conversations: Conversations) -&gt; DataFrame:
+    &#34;&#34;&#34;
+    Sort results by score and uèdate rank
+
+    Args:
+        results: DataFrame to sort
+        conversations: conversations structure
+
+    Returns:
+        A new sorted DataFrame
+    &#34;&#34;&#34;
+    parts = []
+    for d in queries_conversation_splitter(results, conversations):
+        d.sort_values([&#39;qid&#39;, &#39;score&#39;], key=evaluation_key, inplace=True)
+        d[&#39;rank&#39;] = range(len(d))
+        parts.append(d)
+    return pd.concat(parts)
+
+
+def split_comma_not_quotes(value: str) -&gt; List[str]:
+    &#34;&#34;&#34;
+    Split a string by comma (,) preventing the split when
+    the comma is inside quotation marks (&#34;).
+    Quotation marks are **not** removed in the process.
+
+    Raises:
+        ValueError: if quotation marks are not closed
+
+    Args:
+        value: the string to split
+
+    Returns:
+        A list of string
+    &#34;&#34;&#34;
+    count = value.count(&#39;&#34;&#39;)
+    if count == 0:
+        return value.split(&#39;,&#39;)
+    elif count % 2 != 0:
+        raise ValueError(&#39;non-closed quotation marks&#39;)
+    else:
+        parts = []
+        start = 0
+        quote = False
+        for i, c in enumerate(value):
+            if c == &#39;,&#39; and not quote:
+                parts.append(value[start:i])
+                start = i + 1
+            elif c == &#39;&#34;&#39;:
+                quote = not quote
+        if start != len(value):
+            parts.append(value[start:])
+        return parts
+
+
+if __name__ == &#39;__main__&#39;:
+    _d = pd.DataFrame({
+        &#39;qid&#39;: [0, 1, 2],
+        &#39;query&#39;: [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]
+    })
+
+    print(_d, &#39;\n&#39;)
+
+    _d = replace_col_with_history(&#39;query&#39;, [&#39;e&#39;, &#39;f&#39;, &#39;g&#39;], _d)
+
+    print(_d, &#39;\n&#39;)
+
+    _d = replace_col_with_history(&#39;query&#39;, [&#39;h&#39;, &#39;i&#39;, &#39;j&#39;], _d)
+
+    print(_d, &#39;\n&#39;)
+
+    _d = replace_col_with_history(&#39;query&#39;, [&#39;k&#39;, &#39;l&#39;, &#39;m&#39;], _d)
+
+    print(_d, &#39;\n&#39;)
+
+    _s = &#39;a, &#34;b, c&#34;, d&#39;
+    print(_s)
+    print(split_comma_not_quotes(_s))
+    if _s != &#39;,&#39;.join(split_comma_not_quotes(_s)):
+        print(&#39;ERROR with split_comma_not_quotes!&#39;)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="convSearchPython.utils.data_utils.measures_pivot_table"><code class="name flex">
+<span>def <span class="ident">measures_pivot_table</span></span>(<span>data: pandas.core.frame.DataFrame) ‑> pandas.core.frame.DataFrame</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Manipulate a dataFrame so the measures are in columns</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def measures_pivot_table(data: pd.DataFrame) -&gt; pd.DataFrame:
+    &#34;&#34;&#34;Manipulate a dataFrame so the measures are in columns&#34;&#34;&#34;
+    return data.pivot(index=&#39;name&#39;, columns=&#39;measure&#39;, values=&#39;value&#39;)</code></pre>
+</details>
+</dd>
+<dt id="convSearchPython.utils.data_utils.pyterrier2trec"><code class="name flex">
+<span>def <span class="ident">pyterrier2trec</span></span>(<span>run: pandas.core.frame.DataFrame, name=None) ‑> pandas.core.frame.DataFrame</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Convert a pyterrier run to the trec equivalent</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def pyterrier2trec(run: pd.DataFrame, name=None) -&gt; pd.DataFrame:
+    &#34;&#34;&#34;Convert a pyterrier run to the trec equivalent&#34;&#34;&#34;
+    run[&#39;second&#39;] = [&#39;Q0&#39;] * len(run.index)
+    if name is not None:
+        run[&#39;name&#39;] = [name] * len(run.index)
+    else:
+        if &#39;name&#39; not in run.columns:
+            raise Exception(&#39;needs to specify name&#39;)
+
+    return run[[&#39;qid&#39;, &#39;second&#39;, &#39;docno&#39;, &#39;rank&#39;, &#39;score&#39;, &#39;name&#39;]]</code></pre>
+</details>
+</dd>
+<dt id="convSearchPython.utils.data_utils.limit_per_query"><code class="name flex">
+<span>def <span class="ident">limit_per_query</span></span>(<span>data: pandas.core.frame.DataFrame, limit: int) ‑> pandas.core.frame.DataFrame</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Limit the number of result per query</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def limit_per_query(data: DataFrame, limit: int) -&gt; DataFrame:
+    &#34;&#34;&#34;Limit the number of result per query&#34;&#34;&#34;
+    parts = []
+    for _, group in data.groupby([&#39;qid&#39;, &#39;name&#39;]):
+        group = group.reset_index()
+        if len(group) &lt;= limit:
+            parts.append(group)
+        else:
+            parts.append(group[:limit])
+    return pd.concat(parts)</code></pre>
+</details>
+</dd>
+<dt id="convSearchPython.utils.data_utils.limit_per_qid"><code class="name flex">
+<span>def <span class="ident">limit_per_qid</span></span>(<span>data: pandas.core.frame.DataFrame, limit: int) ‑> pandas.core.frame.DataFrame</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Limit the number of result per query</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def limit_per_qid(data: DataFrame, limit: int) -&gt; DataFrame:
+    &#34;&#34;&#34;Limit the number of result per query&#34;&#34;&#34;
+    parts = []
+    for _, group in data.groupby(&#39;qid&#39;):
+        group = group.reset_index()
+        if len(group) &lt;= limit:
+            parts.append(group)
+        else:
+            parts.append(group[:limit])
+    return pd.concat(parts)</code></pre>
+</details>
+</dd>
+<dt id="convSearchPython.utils.data_utils.guess_type"><code class="name flex">
+<span>def <span class="ident">guess_type</span></span>(<span>value: str, no_bool=False, no_str=False, no_float=False, allow_quote_for_str=False) ‑> Union[str, int, float, bool]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Try to guess the type of value (str, int, float or bool) and return it according</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def guess_type(value: str, no_bool=False,
+               no_str=False, no_float=False,
+               allow_quote_for_str=False) -&gt; Union[str, int, float, bool]:
+    &#34;&#34;&#34;Try to guess the type of value (str, int, float or bool) and return it according&#34;&#34;&#34;
+    value = str(value)
+    if allow_quote_for_str:
+        v = value.strip()
+        if v.startswith(&#39;&#34;&#39;) and v.endswith(&#39;&#34;&#39;):
+            return v[1:-1]
+    if not no_bool:
+        low_val = value.lower().strip()
+        if low_val == &#39;true&#39;:
+            return True
+        if low_val == &#39;false&#39;:
+            return False
+    try:
+        return int(value)
+    except ValueError:
+        if no_float:
+            if no_str:
+                raise
+            return value
+        try:
+            return float(value)
+        except ValueError:
+            if no_str:
+                raise
+            return value</code></pre>
+</details>
+</dd>
+<dt id="convSearchPython.utils.data_utils.queries_conversation_splitter"><code class="name flex">
+<span>def <span class="ident">queries_conversation_splitter</span></span>(<span>queries: pandas.core.frame.DataFrame, conversation: Dict[str, List[str]]) ‑> Generator[pandas.core.frame.DataFrame, None, None]</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def queries_conversation_splitter(queries: DataFrame, conversation: Conversations) \
+        -&gt; Generator[DataFrame, None, None]:
+    for conv in conversation.values():
+        q = queries[queries[&#39;qid&#39;].isin(conv)]
+        q.reset_index(inplace=True, drop=True)
+        yield q</code></pre>
+</details>
+</dd>
+<dt id="convSearchPython.utils.data_utils.replace_col_with_history"><code class="name flex">
+<span>def <span class="ident">replace_col_with_history</span></span>(<span>name: str, values: Iterable[Any], df: pandas.core.frame.DataFrame, inplace=False) ‑> pandas.core.frame.DataFrame</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Replace (or add) a column with specified values and name to the DataFrame
+If the column already exists, save the old one as <code>name_0</code>.
+If name_0 is already presents it will be renamed as name_1 (and so on&hellip;).</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong></dt>
+<dd>name of the column</dd>
+<dt><strong><code>values</code></strong></dt>
+<dd>column values</dd>
+<dt><strong><code>df</code></strong></dt>
+<dd>DataFrame to edit</dd>
+<dt><strong><code>inplace</code></strong></dt>
+<dd>if True, edit the DataFrame, else return a new one</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>The edited DataFrame or a new one</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def replace_col_with_history(name: str, values: Iterable[Any], df: pd.DataFrame, inplace=False) -&gt; pd.DataFrame:
+    &#34;&#34;&#34;
+    Replace (or add) a column with specified values and name to the DataFrame
+    If the column already exists, save the old one as `name_0`.
+    If name_0 is already presents it will be renamed as name_1 (and so on...).
+
+    Args:
+        name: name of the column
+        values: column values
+        df: DataFrame to edit
+        inplace: if True, edit the DataFrame, else return a new one
+
+    Returns:
+        The edited DataFrame or a new one
+    &#34;&#34;&#34;
+    if not inplace:
+        df = df.copy()
+
+    history: Set[str] = set(x for x in df.columns if x == name or x.startswith(f&#39;{name}_&#39;))
+    if name not in history:
+        df[name] = values
+        return df
+
+    history.remove(name)
+    suffixes = []
+    for h in history:
+        parts = h.split(&#39;_&#39;)
+        if len(parts) != 2:
+            continue
+        s = parts[1]
+        try:
+            suffixes.append(int(s))
+        except ValueError:
+            continue
+    suffixes.sort(reverse=True)
+    for i in suffixes:
+        df[f&#39;{name}_{i+1}&#39;] = df[f&#39;{name}_{i}&#39;]
+    df[f&#39;{name}_0&#39;] = df[name]
+    df[name] = values
+    return df</code></pre>
+</details>
+</dd>
+<dt id="convSearchPython.utils.data_utils.sort_results_update_rank"><code class="name flex">
+<span>def <span class="ident">sort_results_update_rank</span></span>(<span>results: pandas.core.frame.DataFrame, conversations: Dict[str, List[str]]) ‑> pandas.core.frame.DataFrame</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sort results by score and uèdate rank</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>results</code></strong></dt>
+<dd>DataFrame to sort</dd>
+<dt><strong><code>conversations</code></strong></dt>
+<dd>conversations structure</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>A new sorted DataFrame</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def sort_results_update_rank(results: DataFrame, conversations: Conversations) -&gt; DataFrame:
+    &#34;&#34;&#34;
+    Sort results by score and uèdate rank
+
+    Args:
+        results: DataFrame to sort
+        conversations: conversations structure
+
+    Returns:
+        A new sorted DataFrame
+    &#34;&#34;&#34;
+    parts = []
+    for d in queries_conversation_splitter(results, conversations):
+        d.sort_values([&#39;qid&#39;, &#39;score&#39;], key=evaluation_key, inplace=True)
+        d[&#39;rank&#39;] = range(len(d))
+        parts.append(d)
+    return pd.concat(parts)</code></pre>
+</details>
+</dd>
+<dt id="convSearchPython.utils.data_utils.split_comma_not_quotes"><code class="name flex">
+<span>def <span class="ident">split_comma_not_quotes</span></span>(<span>value: str) ‑> List[str]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Split a string by comma (,) preventing the split when
+the comma is inside quotation marks (").
+Quotation marks are <strong>not</strong> removed in the process.</p>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>ValueError</code></dt>
+<dd>if quotation marks are not closed</dd>
+</dl>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>value</code></strong></dt>
+<dd>the string to split</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>A list of string</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def split_comma_not_quotes(value: str) -&gt; List[str]:
+    &#34;&#34;&#34;
+    Split a string by comma (,) preventing the split when
+    the comma is inside quotation marks (&#34;).
+    Quotation marks are **not** removed in the process.
+
+    Raises:
+        ValueError: if quotation marks are not closed
+
+    Args:
+        value: the string to split
+
+    Returns:
+        A list of string
+    &#34;&#34;&#34;
+    count = value.count(&#39;&#34;&#39;)
+    if count == 0:
+        return value.split(&#39;,&#39;)
+    elif count % 2 != 0:
+        raise ValueError(&#39;non-closed quotation marks&#39;)
+    else:
+        parts = []
+        start = 0
+        quote = False
+        for i, c in enumerate(value):
+            if c == &#39;,&#39; and not quote:
+                parts.append(value[start:i])
+                start = i + 1
+            elif c == &#39;&#34;&#39;:
+                quote = not quote
+        if start != len(value):
+            parts.append(value[start:])
+        return parts</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="convSearchPython.utils" href="index.html">convSearchPython.utils</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="convSearchPython.utils.data_utils.measures_pivot_table" href="#convSearchPython.utils.data_utils.measures_pivot_table">measures_pivot_table</a></code></li>
+<li><code><a title="convSearchPython.utils.data_utils.pyterrier2trec" href="#convSearchPython.utils.data_utils.pyterrier2trec">pyterrier2trec</a></code></li>
+<li><code><a title="convSearchPython.utils.data_utils.limit_per_query" href="#convSearchPython.utils.data_utils.limit_per_query">limit_per_query</a></code></li>
+<li><code><a title="convSearchPython.utils.data_utils.limit_per_qid" href="#convSearchPython.utils.data_utils.limit_per_qid">limit_per_qid</a></code></li>
+<li><code><a title="convSearchPython.utils.data_utils.guess_type" href="#convSearchPython.utils.data_utils.guess_type">guess_type</a></code></li>
+<li><code><a title="convSearchPython.utils.data_utils.queries_conversation_splitter" href="#convSearchPython.utils.data_utils.queries_conversation_splitter">queries_conversation_splitter</a></code></li>
+<li><code><a title="convSearchPython.utils.data_utils.replace_col_with_history" href="#convSearchPython.utils.data_utils.replace_col_with_history">replace_col_with_history</a></code></li>
+<li><code><a title="convSearchPython.utils.data_utils.sort_results_update_rank" href="#convSearchPython.utils.data_utils.sort_results_update_rank">sort_results_update_rank</a></code></li>
+<li><code><a title="convSearchPython.utils.data_utils.split_comma_not_quotes" href="#convSearchPython.utils.data_utils.split_comma_not_quotes">split_comma_not_quotes</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

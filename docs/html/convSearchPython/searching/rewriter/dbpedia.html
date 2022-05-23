@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>convSearchPython.searching.rewriter.dbpedia API documentation</title>
+<meta name="description" content="This module contains a class for rewriting queries using wikipedia and conceptnet …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML" integrity="sha256-kZafAc6mZvK3W3v1pHOcUix30OHQN6pU/NO2oFkqZVw=" crossorigin></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>convSearchPython.searching.rewriter.dbpedia</code></h1>
+</header>
+<section id="section-intro">
+<p>This module contains a class for rewriting queries using wikipedia and conceptnet.</p>
+<p>It's based on paper <a href="https://trec.nist.gov/pubs/trec28/papers/mpii.C.pdf">Incoporating Query Context into a BERT Re-ranker</a></p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+This module contains a class for rewriting queries using wikipedia and conceptnet.
+
+It&#39;s based on paper [Incoporating Query Context into a BERT Re-ranker](https://trec.nist.gov/pubs/trec28/papers/mpii.C.pdf)
+&#34;&#34;&#34;
+import collections
+import logging
+import re
+from math import log
+from time import sleep
+from typing import List
+
+import requests
+from pandas import DataFrame, Series
+
+from convSearchPython.dataset import Conversations, QueryMap
+from convSearchPython.pipelines import Rewriter, StepType, IndexConf
+from convSearchPython.utils.data_utils import replace_col_with_history
+
+
+class DbPediaRewriter(Rewriter):
+    &#34;&#34;&#34;
+    Rewriter that use Wikipedia and ConceptNet to do query expansion.
+    &#34;&#34;&#34;
+    def __init__(self,  conversations: Conversations,
+                 query_map: QueryMap, index: str, num_snippets,
+                 snippets_doc_freq: bool, **kwargs):
+        &#34;&#34;&#34;
+        Args:
+            conversations: conversations map
+            query_map: queries map
+            index: index name
+            num_snippets: number of wikipedia snippets to retrieve
+            snippets_doc_freq: if True the frequency of a term inside snippets will
+            be used instead of frequency inside the index
+            restrict_to_ascii_letters_and_numbers: if True characted that match &#39;[^a-zA-Z0-9]&#39;
+            will be removed. This is done because pyterrier fail to parse queries that contain
+            certain symbols.
+        &#34;&#34;&#34;
+        super().__init__(**kwargs)
+        self._conversations = conversations
+        self._query_map = query_map
+        self.__logger = logging.getLogger(self.__class__.__name__)
+        self.__tag_re = re.compile(&#39;&lt;.*?&gt;&#39;)
+        self.__symbols_re = re.compile(&#39;[.,;:\\-_&#34;]&#39;)
+        self.__restrict_re = re.compile(&#39;[^a-zA-Z0-9]&#39;)
+        self._retry = 5
+        self._wait_time = 60
+        self._num_snippets = num_snippets
+        self._snippets_doc_freq = snippets_doc_freq
+        self._index = index
+
+        import spacy
+        if spacy.__version__.startswith(&#39;2.&#39;):
+            self._nlp = spacy.load(&#39;en&#39;)
+        else:
+            self._nlp = spacy.load(&#34;en_core_web_sm&#34;)
+
+    @property
+    def name(self) -&gt; str:
+        freq = &#39;snipFreq&#39; if self._snippets_doc_freq else &#39;docFreq&#39;
+        return f&#39;DbPedia-{self._num_snippets}-{freq}&#39;
+
+    @property
+    def type(self) -&gt; StepType:
+        return StepType.CONVERSATIONALLY_PARALLEL
+
+    def _concat(self, query: Series, queries: DataFrame) -&gt; str:
+        qid = query[&#39;qid&#39;]
+        str_query = query[&#39;query&#39;]
+        conv_id, index = self._query_map[qid]
+        parts = []
+        for oq_id in self._conversations[conv_id][0:index]:
+            q = queries[queries[&#39;qid&#39;] == oq_id].iloc[0][&#39;query&#39;]
+            parts.append(q)
+        parts.append(str_query)
+        return &#39; &#39;.join(parts)
+
+    def _make_req(self, url, params=None, headers=None):
+        count = 0
+        err = None
+        while count &lt; self._retry:
+            if err is not None:
+                self.__logger.error(err)
+            if count &gt; 0:
+                sleep(self._wait_time)
+            try:
+                resp = requests.get(url,
+                                    params=params,
+                                    headers=headers)
+                if not resp.ok:
+                    err = Exception(f&#39;response code: {resp.status_code}&#39;)
+                    continue
+                return resp.json()
+            except Exception as ex:
+                err = ex
+        raise err
+
+    def _spotlight(self, text: str):
+        result = self._make_req(&#39;https://api.dbpedia-spotlight.org/en/annotate&#39;,
+                                params={&#39;text&#39;: text},
+                                headers={&#39;accept&#39;: &#39;application/json&#39;})
+        resources = result.get(&#39;Resources&#39;)
+        if resources is None:
+            return []
+        _list = []
+        for res in resources:
+            _list.append(res[&#39;@surfaceForm&#39;])
+        return _list
+
+    def _wiki(self, term: str):
+        data = self._make_req(&#39;https://en.wikipedia.org/w/api.php&#39;,
+                              params={
+                                  &#34;action&#34;: &#34;query&#34;,
+                                  &#34;format&#34;: &#34;json&#34;,
+                                  &#34;list&#34;: &#34;search&#34;,
+                                  &#39;srsearch&#39;: term,
+                                  &#39;srlimit&#39;: self._num_snippets
+                              })
+        orig_snippets = data[&#39;query&#39;][&#39;search&#39;]
+        snippets = []
+        for snip in orig_snippets:
+            raw = snip[&#39;snippet&#39;]
+            words = self.__tag_re.sub(&#39; &#39;, raw).split()
+            words = list(self.__symbols_re.sub(&#39;&#39;, w) for w in words)
+            snippets.append(words)
+        return snippets
+
+    def _score_terms(self, snippets: List[List[str]]):
+        lexicon = IndexConf.load_index(self._index).index.getLexicon()
+        tot_snippets_len = 0
+        all_terms = set()
+        for x in snippets:
+            all_terms.update(x)
+            tot_snippets_len += len(x)
+
+        terms_freq_per_snip = {}
+        for i in range(len(snippets)):
+            terms_freq_per_snip[i] = collections.Counter(snippets[i])
+
+        scores = []
+        for term in all_terms:
+            score = 0.0
+            for i in range(len(snippets)):
+                snip = snippets[i]
+                _len = len(snip)
+                v = terms_freq_per_snip[i][term] / _len  # freq in i-th snippet
+                if v == 0:
+                    continue
+                v *= (1 / (i + 1))  # RR
+                score += v
+            try:
+                if self._snippets_doc_freq:
+                    doc_freq = 0
+                    for counter in terms_freq_per_snip.values():
+                        doc_freq += counter[term]
+                    doc_freq = doc_freq / tot_snippets_len
+                else:
+                    doc_freq = lexicon[term].getDocumentFrequency()
+            except KeyError:
+                continue
+            score *= log(1 / doc_freq)
+            scores.append((term, score))
+        scores.sort(key=lambda _x: _x[1], reverse=True)
+        return scores
+
+    def _concept_net(self, term: str):
+        url_term = term.replace(&#39; &#39;, &#39;_&#39;)
+        data = self._make_req(f&#39;https://api.conceptnet.io/c/en/{url_term}&#39;,
+                              headers={&#39;accept&#39;: &#39;application/json&#39;})
+        expansion_terms = []
+        for edge in data[&#39;edges&#39;]:
+            node = edge[&#39;start&#39;]
+            label = node[&#39;label&#39;]
+            lang = node[&#39;language&#39;]
+            if lang == &#39;en&#39;:
+                expansion_terms.append(label)
+        return expansion_terms
+
+    def _find_noun_adj_grams(self, text: str):
+        tagged = self._nlp(text)
+        ngrams = []
+        current = []  # todo considerare tutti i possibili n-grams (adiacenti) e fare statistiche
+        for w in tagged:
+            tag = w.tag_
+            if tag == &#39;NN&#39; or tag == &#39;JJ&#39;:
+                current.append(w.lemma_)
+            elif len(current) &gt; 0:
+                ngrams.append(&#39;_&#39;.join(current))
+                current.clear()
+        if len(current) &gt; 0:
+            ngrams.append(&#39;_&#39;.join(current))
+        return ngrams
+
+    def _rewrite_single(self, query: Series, queries: DataFrame) -&gt; str:
+        concatenated_query = self._concat(query, queries)
+        entities = self._spotlight(concatenated_query)
+        expand_parts = [concatenated_query]
+        if len(entities) &gt; 0:
+            for entity in entities:
+                snippets = self._wiki(entity)
+                scored_terms = self._score_terms(snippets)
+                expand_parts.extend(x[0] for x in scored_terms[0:10])
+        else:
+            ngrams = self._find_noun_adj_grams(concatenated_query)
+            for n in ngrams:
+                expand_parts.extend(self._concept_net(n))
+        rewritten = &#39; &#39;.join(expand_parts)
+        rewritten = self.__restrict_re.sub(&#39; &#39;, rewritten)
+        return rewritten
+
+    def rewrite(self, queries: DataFrame) -&gt; DataFrame:
+        values = queries.apply(self._rewrite_single, axis=1, args=(queries, ))
+        return replace_col_with_history(&#39;query&#39;, values, queries)
+
+
+if __name__ == &#39;__main__&#39;:
+    from convSearchPython.dataset.CAsT import cast_dataset
+
+    _queries, _qrels, _conversations, _query_map = cast_dataset(2019)
+    rw = DbPediaRewriter(_conversations, _query_map, &#39;custom&#39;, 10, False)
+    for _, _query in _queries.iterrows():
+        print(f&#39;original:  {_query[&#34;query&#34;]}&#39;)
+        print(f&#39;rewritten: {rw._rewrite_single(_query, _queries)}&#39;)
+    # wiki = rw._wiki(&#39;lung cancer&#39;)
+    # print(wiki)
+    # scores = rw._score_terms(wiki)
+    # print(scores)
+    # nj = rw._find_noun_adj_grams(&#39;tell me about lung cancer. How it spread?&#39;)
+    # print(nj)
+    # cn = rw._concept_net(nj[0])
+    # print(cn)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="convSearchPython.searching.rewriter.dbpedia.DbPediaRewriter"><code class="flex name class">
+<span>class <span class="ident">DbPediaRewriter</span></span>
+<span>(</span><span>conversations: Dict[str, List[str]], query_map: Dict[str, Tuple[str, int]], index: str, num_snippets, snippets_doc_freq: bool, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Rewriter that use Wikipedia and ConceptNet to do query expansion.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>conversations</code></strong></dt>
+<dd>conversations map</dd>
+<dt><strong><code>query_map</code></strong></dt>
+<dd>queries map</dd>
+<dt><strong><code>index</code></strong></dt>
+<dd>index name</dd>
+<dt><strong><code>num_snippets</code></strong></dt>
+<dd>number of wikipedia snippets to retrieve</dd>
+<dt><strong><code>snippets_doc_freq</code></strong></dt>
+<dd>if True the frequency of a term inside snippets will</dd>
+<dt>be used instead of frequency inside the index</dt>
+<dt><strong><code>restrict_to_ascii_letters_and_numbers</code></strong></dt>
+<dd>if True characted that match '[^a-zA-Z0-9]'</dd>
+</dl>
+<p>will be removed. This is done because pyterrier fail to parse queries that contain
+certain symbols.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DbPediaRewriter(Rewriter):
+    &#34;&#34;&#34;
+    Rewriter that use Wikipedia and ConceptNet to do query expansion.
+    &#34;&#34;&#34;
+    def __init__(self,  conversations: Conversations,
+                 query_map: QueryMap, index: str, num_snippets,
+                 snippets_doc_freq: bool, **kwargs):
+        &#34;&#34;&#34;
+        Args:
+            conversations: conversations map
+            query_map: queries map
+            index: index name
+            num_snippets: number of wikipedia snippets to retrieve
+            snippets_doc_freq: if True the frequency of a term inside snippets will
+            be used instead of frequency inside the index
+            restrict_to_ascii_letters_and_numbers: if True characted that match &#39;[^a-zA-Z0-9]&#39;
+            will be removed. This is done because pyterrier fail to parse queries that contain
+            certain symbols.
+        &#34;&#34;&#34;
+        super().__init__(**kwargs)
+        self._conversations = conversations
+        self._query_map = query_map
+        self.__logger = logging.getLogger(self.__class__.__name__)
+        self.__tag_re = re.compile(&#39;&lt;.*?&gt;&#39;)
+        self.__symbols_re = re.compile(&#39;[.,;:\\-_&#34;]&#39;)
+        self.__restrict_re = re.compile(&#39;[^a-zA-Z0-9]&#39;)
+        self._retry = 5
+        self._wait_time = 60
+        self._num_snippets = num_snippets
+        self._snippets_doc_freq = snippets_doc_freq
+        self._index = index
+
+        import spacy
+        if spacy.__version__.startswith(&#39;2.&#39;):
+            self._nlp = spacy.load(&#39;en&#39;)
+        else:
+            self._nlp = spacy.load(&#34;en_core_web_sm&#34;)
+
+    @property
+    def name(self) -&gt; str:
+        freq = &#39;snipFreq&#39; if self._snippets_doc_freq else &#39;docFreq&#39;
+        return f&#39;DbPedia-{self._num_snippets}-{freq}&#39;
+
+    @property
+    def type(self) -&gt; StepType:
+        return StepType.CONVERSATIONALLY_PARALLEL
+
+    def _concat(self, query: Series, queries: DataFrame) -&gt; str:
+        qid = query[&#39;qid&#39;]
+        str_query = query[&#39;query&#39;]
+        conv_id, index = self._query_map[qid]
+        parts = []
+        for oq_id in self._conversations[conv_id][0:index]:
+            q = queries[queries[&#39;qid&#39;] == oq_id].iloc[0][&#39;query&#39;]
+            parts.append(q)
+        parts.append(str_query)
+        return &#39; &#39;.join(parts)
+
+    def _make_req(self, url, params=None, headers=None):
+        count = 0
+        err = None
+        while count &lt; self._retry:
+            if err is not None:
+                self.__logger.error(err)
+            if count &gt; 0:
+                sleep(self._wait_time)
+            try:
+                resp = requests.get(url,
+                                    params=params,
+                                    headers=headers)
+                if not resp.ok:
+                    err = Exception(f&#39;response code: {resp.status_code}&#39;)
+                    continue
+                return resp.json()
+            except Exception as ex:
+                err = ex
+        raise err
+
+    def _spotlight(self, text: str):
+        result = self._make_req(&#39;https://api.dbpedia-spotlight.org/en/annotate&#39;,
+                                params={&#39;text&#39;: text},
+                                headers={&#39;accept&#39;: &#39;application/json&#39;})
+        resources = result.get(&#39;Resources&#39;)
+        if resources is None:
+            return []
+        _list = []
+        for res in resources:
+            _list.append(res[&#39;@surfaceForm&#39;])
+        return _list
+
+    def _wiki(self, term: str):
+        data = self._make_req(&#39;https://en.wikipedia.org/w/api.php&#39;,
+                              params={
+                                  &#34;action&#34;: &#34;query&#34;,
+                                  &#34;format&#34;: &#34;json&#34;,
+                                  &#34;list&#34;: &#34;search&#34;,
+                                  &#39;srsearch&#39;: term,
+                                  &#39;srlimit&#39;: self._num_snippets
+                              })
+        orig_snippets = data[&#39;query&#39;][&#39;search&#39;]
+        snippets = []
+        for snip in orig_snippets:
+            raw = snip[&#39;snippet&#39;]
+            words = self.__tag_re.sub(&#39; &#39;, raw).split()
+            words = list(self.__symbols_re.sub(&#39;&#39;, w) for w in words)
+            snippets.append(words)
+        return snippets
+
+    def _score_terms(self, snippets: List[List[str]]):
+        lexicon = IndexConf.load_index(self._index).index.getLexicon()
+        tot_snippets_len = 0
+        all_terms = set()
+        for x in snippets:
+            all_terms.update(x)
+            tot_snippets_len += len(x)
+
+        terms_freq_per_snip = {}
+        for i in range(len(snippets)):
+            terms_freq_per_snip[i] = collections.Counter(snippets[i])
+
+        scores = []
+        for term in all_terms:
+            score = 0.0
+            for i in range(len(snippets)):
+                snip = snippets[i]
+                _len = len(snip)
+                v = terms_freq_per_snip[i][term] / _len  # freq in i-th snippet
+                if v == 0:
+                    continue
+                v *= (1 / (i + 1))  # RR
+                score += v
+            try:
+                if self._snippets_doc_freq:
+                    doc_freq = 0
+                    for counter in terms_freq_per_snip.values():
+                        doc_freq += counter[term]
+                    doc_freq = doc_freq / tot_snippets_len
+                else:
+                    doc_freq = lexicon[term].getDocumentFrequency()
+            except KeyError:
+                continue
+            score *= log(1 / doc_freq)
+            scores.append((term, score))
+        scores.sort(key=lambda _x: _x[1], reverse=True)
+        return scores
+
+    def _concept_net(self, term: str):
+        url_term = term.replace(&#39; &#39;, &#39;_&#39;)
+        data = self._make_req(f&#39;https://api.conceptnet.io/c/en/{url_term}&#39;,
+                              headers={&#39;accept&#39;: &#39;application/json&#39;})
+        expansion_terms = []
+        for edge in data[&#39;edges&#39;]:
+            node = edge[&#39;start&#39;]
+            label = node[&#39;label&#39;]
+            lang = node[&#39;language&#39;]
+            if lang == &#39;en&#39;:
+                expansion_terms.append(label)
+        return expansion_terms
+
+    def _find_noun_adj_grams(self, text: str):
+        tagged = self._nlp(text)
+        ngrams = []
+        current = []  # todo considerare tutti i possibili n-grams (adiacenti) e fare statistiche
+        for w in tagged:
+            tag = w.tag_
+            if tag == &#39;NN&#39; or tag == &#39;JJ&#39;:
+                current.append(w.lemma_)
+            elif len(current) &gt; 0:
+                ngrams.append(&#39;_&#39;.join(current))
+                current.clear()
+        if len(current) &gt; 0:
+            ngrams.append(&#39;_&#39;.join(current))
+        return ngrams
+
+    def _rewrite_single(self, query: Series, queries: DataFrame) -&gt; str:
+        concatenated_query = self._concat(query, queries)
+        entities = self._spotlight(concatenated_query)
+        expand_parts = [concatenated_query]
+        if len(entities) &gt; 0:
+            for entity in entities:
+                snippets = self._wiki(entity)
+                scored_terms = self._score_terms(snippets)
+                expand_parts.extend(x[0] for x in scored_terms[0:10])
+        else:
+            ngrams = self._find_noun_adj_grams(concatenated_query)
+            for n in ngrams:
+                expand_parts.extend(self._concept_net(n))
+        rewritten = &#39; &#39;.join(expand_parts)
+        rewritten = self.__restrict_re.sub(&#39; &#39;, rewritten)
+        return rewritten
+
+    def rewrite(self, queries: DataFrame) -&gt; DataFrame:
+        values = queries.apply(self._rewrite_single, axis=1, args=(queries, ))
+        return replace_col_with_history(&#39;query&#39;, values, queries)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="convSearchPython.pipelines.Rewriter" href="../../pipelines/index.html#convSearchPython.pipelines.Rewriter">Rewriter</a></li>
+<li><a title="convSearchPython.pipelines.Step" href="../../pipelines/index.html#convSearchPython.pipelines.Step">Step</a></li>
+<li>abc.ABC</li>
+</ul>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="convSearchPython.pipelines.Rewriter" href="../../pipelines/index.html#convSearchPython.pipelines.Rewriter">Rewriter</a></b></code>:
+<ul class="hlist">
+<li><code><a title="convSearchPython.pipelines.Rewriter.__call__" href="../../pipelines/index.html#convSearchPython.pipelines.Step.__call__">__call__</a></code></li>
+<li><code><a title="convSearchPython.pipelines.Rewriter.cleanup" href="../../pipelines/index.html#convSearchPython.pipelines.Step.cleanup">cleanup</a></code></li>
+<li><code><a title="convSearchPython.pipelines.Rewriter.name" href="../../pipelines/index.html#convSearchPython.pipelines.Step.name">name</a></code></li>
+<li><code><a title="convSearchPython.pipelines.Rewriter.rewrite" href="../../pipelines/index.html#convSearchPython.pipelines.Rewriter.rewrite">rewrite</a></code></li>
+<li><code><a title="convSearchPython.pipelines.Rewriter.type" href="../../pipelines/index.html#convSearchPython.pipelines.Step.type">type</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="convSearchPython.searching.rewriter" href="index.html">convSearchPython.searching.rewriter</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="convSearchPython.searching.rewriter.dbpedia.DbPediaRewriter" href="#convSearchPython.searching.rewriter.dbpedia.DbPediaRewriter">DbPediaRewriter</a></code></h4>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>convSearchPython.pipelines.historical API documentation</title>
+<meta name="description" content="This module contains a collection of pipelines that make use of two algorithms (HQE and HAE) described in
+[Query and Answer Expansion from …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML" integrity="sha256-kZafAc6mZvK3W3v1pHOcUix30OHQN6pU/NO2oFkqZVw=" crossorigin></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>convSearchPython.pipelines.historical</code></h1>
+</header>
+<section id="section-intro">
+<p>This module contains a collection of pipelines that make use of two algorithms (HQE and HAE) described in
+<a href="https://trec.nist.gov/pubs/trec28/papers/CFDA_CLIP.C.pdf">Query and Answer Expansion from Conversation History (Jheng-Hong Yang et al)</a>.</p>
+<h3 id="hqe-historical-query-expansion">HQE: <strong>Historical Query Expansion</strong></h3>
+<p>This is a query rewriting method that extract relevant keywords from previous
+utterances in the same conversation and add them to the current query.</p>
+<p>It's governed by:</p>
+<ul>
+<li><span><span class="MathJax_Preview"> r_s </span><script type="math/tex"> r_s </script></span>: hyperparameter for words that are relevant to the session (or conversation)</li>
+<li><span><span class="MathJax_Preview"> r_q </span><script type="math/tex"> r_q </script></span>: hyperparameter for words that are relevant to their containing query</li>
+<li><span><span class="MathJax_Preview"> \theta </span><script type="math/tex"> \theta </script></span>: hyperparameter for queries that are non-ambiguous</li>
+</ul>
+<p>Notes on v2:</p>
+<blockquote>
+<p>This project contain two implementation for HQE, the first (implemented in <code><a title="convSearchPython.searching.rewriter.historical_query" href="../searching/rewriter/historical_query.html">convSearchPython.searching.rewriter.historical_query</a></code>)
+is a custom implementation based only on what the paper describes. The second (<code><a title="convSearchPython.searching.rewriter.historical_query_v2" href="../searching/rewriter/historical_query_v2.html">convSearchPython.searching.rewriter.historical_query_v2</a></code>)
+is based on code at <a href="https://github.com/castorini/pyserini/blob/master/pyserini/search/_searcher.py">this link</a>.</p>
+</blockquote>
+<p>The <em>v2</em> parameter of HQE pipelines determines which implementation is used</p>
+<h3 id="hae-historical-answer-expansion">HAE: <strong>Historical Answer Expansion</strong></h3>
+<p>This is a reranking method based on <a href="https://arxiv.org/abs/1810.04805v2">BERT</a></p>
+<p>It's governed by:</p>
+<ul>
+<li><span><span class="MathJax_Preview"> \lambda </span><script type="math/tex"> \lambda </script></span>: decay factor for lower previous answers' weight</li>
+<li><span><span class="MathJax_Preview"> k </span><script type="math/tex"> k </script></span>: number of documents to return for every query</li>
+</ul>
+<hr>
+<p>Notes: the reranking phase support GPU acceleration through CUDA and multiple
+GPU computing. Check the module <code>ranking.bert.bert_pre_marco</code> for the available
+implementation.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+This module contains a collection of pipelines that make use of two algorithms (HQE and HAE) described in
+[Query and Answer Expansion from Conversation History (Jheng-Hong Yang et al)](https://trec.nist.gov/pubs/trec28/papers/CFDA_CLIP.C.pdf).
+
+### HQE: **Historical Query Expansion**
+This is a query rewriting method that extract relevant keywords from previous
+utterances in the same conversation and add them to the current query.
+
+It&#39;s governed by:
+
+- \\( r_s \\): hyperparameter for words that are relevant to the session (or conversation)
+- \\( r_q \\): hyperparameter for words that are relevant to their containing query
+- \\( \\theta \\): hyperparameter for queries that are non-ambiguous
+
+Notes on v2:
+&gt; This project contain two implementation for HQE, the first (implemented in `convSearchPython.searching.rewriter.historical_query`)
+is a custom implementation based only on what the paper describes. The second (`convSearchPython.searching.rewriter.historical_query_v2`)
+is based on code at [this link](https://github.com/castorini/pyserini/blob/master/pyserini/search/_searcher.py).
+
+The *v2* parameter of HQE pipelines determines which implementation is used
+
+### HAE: **Historical Answer Expansion**
+This is a reranking method based on [BERT](https://arxiv.org/abs/1810.04805v2)
+
+It&#39;s governed by:
+
+- \\( \\lambda \\): decay factor for lower previous answers&#39; weight
+- \\( k \\): number of documents to return for every query
+
+-----
+Notes: the reranking phase support GPU acceleration through CUDA and multiple
+GPU computing. Check the module `ranking.bert.bert_pre_marco` for the available
+implementation.
+&#34;&#34;&#34;
+
+from convSearchPython.dataset import QueryMap
+from convSearchPython.pipelines import *
+from convSearchPython.pipelines.baselines import PlainBM25Pipeline
+from convSearchPython.ranking.historical_answer import HAEReranker
+from convSearchPython.searching.rewriter.historical_query import HistoricalQueryRewriter
+from convSearchPython.searching.rewriter.historical_query_v2 import HQERewriter
+from convSearchPython.utils import parse_bool
+
+
+class BM25TokenPipeline(PlainBM25Pipeline):
+    &#34;&#34;&#34;
+    ***This is a test pipeline.***
+
+    Its purpose is to provide an indication for hyperparameters tuning (by saving and analyzing the run).
+
+    It sends every single query words as a query itself.
+    &#34;&#34;&#34;
+
+    def run_on(self, queries: pd.DataFrame, parallel_pool: Optional[Pool] = None) -&gt; pd.DataFrame:
+        &#34;&#34;&#34;
+        Run the pipeline
+
+        Split every query by its words and search them as individual queries.
+        Args:
+            queries: the queries DataFrame
+            parallel_pool: optional multiprocessing pool
+
+        Returns:
+            Concatenated DataFrame of results
+        &#34;&#34;&#34;
+        parts = []
+        for _, row in queries.iterrows():
+            tokens = str(row[&#39;query&#39;]).split()
+            for t in tokens:
+                new_row = row.copy()
+                new_row[&#39;query&#39;] = t
+                new_row[&#39;qid&#39;] = str(new_row[&#39;qid&#39;]) + &#39;_&#39; + t
+                parts.append(new_row)
+        queries = pd.DataFrame(parts)
+        del parts
+        return super().run_on(queries, parallel_pool)
+
+
+class HistoricalQueryExpansionPipeline(PlainBM25Pipeline):
+    &#34;&#34;&#34;Historical query expansion pipeline&#34;&#34;&#34;
+    def __init__(self, query_map: QueryMap, conversations: Conversations,
+                 rs=10, rq=15, theta=30, v2=True, **kwargs):
+        &#34;&#34;&#34;
+        Args:
+            rs: threshold for session keywords
+            rq: threshold for query keywords
+            theta: threshold for non ambiguous query
+            v2: if to use hqe v2
+            index: index name
+            metadata: metadata to retrieve
+            rm3: if to apply RM3
+            c: BM25 c parameter
+            fb_terms: RM3 term number
+            fb_docs: RM3 number of docs
+            fb_lambda: RM3 lambda
+            **kwargs: extra arguments
+        &#34;&#34;&#34;
+        super().__init__(**kwargs)
+        self._rs = rs
+        self._rq = rq
+        self._theta = theta
+        self._query_map = query_map
+        self._conversations = conversations
+        self._v2 = parse_bool(v2)
+
+        if self._v2:
+            hqe = HistoricalQueryRewriter(session_relevant_threshold=rs,
+                                          query_relevant_threshold=rq,
+                                          non_ambiguous_threshold=theta,
+                                          **kwargs)
+        else:
+            hqe = HQERewriter(rs=rs, rq=rq, theta=theta, **kwargs)
+        self._steps: list = [hqe] + self._steps
+
+    @property
+    def name(self):
+        &#34;&#34;&#34;BM25_HQE_[rm3]&#34;&#34;&#34;
+        if self._apply_rm3:
+            return f&#39;{self._steps[1].name}_{self._steps[0].name}_{self._steps[2].name}&#39;
+        return f&#39;{self._steps[1].name}_{self._steps[0].name}_none&#39;
+
+    def run_on(self, queries: pd.DataFrame, parallel_pool: Optional[Pool] = None) -&gt; pd.DataFrame:
+        results = queries
+
+        if parallel_pool is None:
+            for step in self._steps:
+                results = step(results)
+            return results
+
+        for step in self._steps:
+            results = self._conv_parallel_run(step, parallel_pool, results, self._conversations)
+
+        return results
+
+
+class HistoricalQueryAndAnswerExpansionPipeline(HistoricalQueryExpansionPipeline):
+    &#34;&#34;&#34;Pipeline that use HQExp for rewriting and HAExp for reranking&#34;&#34;&#34;
+    def __init__(self, _lambda: float = 2, k: int = 100,
+                 **kwargs):
+        &#34;&#34;&#34;
+        Args:
+            _lambda: decay factor
+            k: cutoff for returned docs
+            rs: threshold for session keywords
+            rq: threshold for query keywords
+            theta: threshold for non-ambiguous query
+            v2: if to use hqe v2
+            index: index name
+            metadata: metadata to retrieve
+            rm3: if to apply RM3
+            c: BM25 c parameter
+            fb_terms: RM3 term number
+            fb_docs: RM3 number of docs
+            fb_lambda: RM3 lambda
+            **kwargs: extra arguments
+        &#34;&#34;&#34;
+        super().__init__(**kwargs)
+        self._lambda = _lambda
+        self._k = k
+        self._steps.append(HAEReranker(_lambda=_lambda, k=k, **kwargs))
+
+    @property
+    def name(self):
+        &#34;&#34;&#34;BM25_HQE_[rm3]_HAE&#34;&#34;&#34;
+        if self._apply_rm3:
+            i = 3
+        else:
+            i = 2
+        return super().name + self._steps[i].name</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="convSearchPython.pipelines.historical.BM25TokenPipeline"><code class="flex name class">
+<span>class <span class="ident">BM25TokenPipeline</span></span>
+<span>(</span><span>index: str, metadata: list, rm3=False, c=0.75, fb_terms=20, fb_docs=20, fb_lambda=0.5, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p><strong><em>This is a test pipeline.</em></strong></p>
+<p>Its purpose is to provide an indication for hyperparameters tuning (by saving and analyzing the run).</p>
+<p>It sends every single query words as a query itself.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>index</code></strong></dt>
+<dd>index name</dd>
+<dt><strong><code>metadata</code></strong></dt>
+<dd>metadata to retrieve</dd>
+<dt><strong><code>rm3</code></strong></dt>
+<dd>if to apply RM3</dd>
+<dt><strong><code>c</code></strong></dt>
+<dd>BM25 c parameter</dd>
+<dt><strong><code>fb_terms</code></strong></dt>
+<dd>RM3 term number</dd>
+<dt><strong><code>fb_docs</code></strong></dt>
+<dd>RM3 number of docs</dd>
+<dt><strong><code>fb_lambda</code></strong></dt>
+<dd>RM3 lambda</dd>
+<dt><strong><code>**kwargs</code></strong></dt>
+<dd>extra unused arguments</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class BM25TokenPipeline(PlainBM25Pipeline):
+    &#34;&#34;&#34;
+    ***This is a test pipeline.***
+
+    Its purpose is to provide an indication for hyperparameters tuning (by saving and analyzing the run).
+
+    It sends every single query words as a query itself.
+    &#34;&#34;&#34;
+
+    def run_on(self, queries: pd.DataFrame, parallel_pool: Optional[Pool] = None) -&gt; pd.DataFrame:
+        &#34;&#34;&#34;
+        Run the pipeline
+
+        Split every query by its words and search them as individual queries.
+        Args:
+            queries: the queries DataFrame
+            parallel_pool: optional multiprocessing pool
+
+        Returns:
+            Concatenated DataFrame of results
+        &#34;&#34;&#34;
+        parts = []
+        for _, row in queries.iterrows():
+            tokens = str(row[&#39;query&#39;]).split()
+            for t in tokens:
+                new_row = row.copy()
+                new_row[&#39;query&#39;] = t
+                new_row[&#39;qid&#39;] = str(new_row[&#39;qid&#39;]) + &#39;_&#39; + t
+                parts.append(new_row)
+        queries = pd.DataFrame(parts)
+        del parts
+        return super().run_on(queries, parallel_pool)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="convSearchPython.pipelines.baselines.PlainBM25Pipeline" href="baselines.html#convSearchPython.pipelines.baselines.PlainBM25Pipeline">PlainBM25Pipeline</a></li>
+<li><a title="convSearchPython.pipelines.AbstractParallelPipeline" href="index.html#convSearchPython.pipelines.AbstractParallelPipeline">AbstractParallelPipeline</a></li>
+<li><a title="convSearchPython.pipelines.Pipeline" href="index.html#convSearchPython.pipelines.Pipeline">Pipeline</a></li>
+<li>abc.ABC</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="convSearchPython.pipelines.historical.BM25TokenPipeline.run_on"><code class="name flex">
+<span>def <span class="ident">run_on</span></span>(<span>self, queries: pandas.core.frame.DataFrame, parallel_pool: Optional[multiprocessing.pool.Pool] = None) ‑> pandas.core.frame.DataFrame</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Run the pipeline</p>
+<p>Split every query by its words and search them as individual queries.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>queries</code></strong></dt>
+<dd>the queries DataFrame</dd>
+<dt><strong><code>parallel_pool</code></strong></dt>
+<dd>optional multiprocessing pool</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>Concatenated DataFrame of results</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def run_on(self, queries: pd.DataFrame, parallel_pool: Optional[Pool] = None) -&gt; pd.DataFrame:
+    &#34;&#34;&#34;
+    Run the pipeline
+
+    Split every query by its words and search them as individual queries.
+    Args:
+        queries: the queries DataFrame
+        parallel_pool: optional multiprocessing pool
+
+    Returns:
+        Concatenated DataFrame of results
+    &#34;&#34;&#34;
+    parts = []
+    for _, row in queries.iterrows():
+        tokens = str(row[&#39;query&#39;]).split()
+        for t in tokens:
+            new_row = row.copy()
+            new_row[&#39;query&#39;] = t
+            new_row[&#39;qid&#39;] = str(new_row[&#39;qid&#39;]) + &#39;_&#39; + t
+            parts.append(new_row)
+    queries = pd.DataFrame(parts)
+    del parts
+    return super().run_on(queries, parallel_pool)</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="convSearchPython.pipelines.baselines.PlainBM25Pipeline" href="baselines.html#convSearchPython.pipelines.baselines.PlainBM25Pipeline">PlainBM25Pipeline</a></b></code>:
+<ul class="hlist">
+<li><code><a title="convSearchPython.pipelines.baselines.PlainBM25Pipeline.__call__" href="index.html#convSearchPython.pipelines.Pipeline.__call__">__call__</a></code></li>
+<li><code><a title="convSearchPython.pipelines.baselines.PlainBM25Pipeline._conv_parallel_run" href="index.html#convSearchPython.pipelines.AbstractParallelPipeline._conv_parallel_run">_conv_parallel_run</a></code></li>
+<li><code><a title="convSearchPython.pipelines.baselines.PlainBM25Pipeline._parallel_run" href="index.html#convSearchPython.pipelines.AbstractParallelPipeline._parallel_run">_parallel_run</a></code></li>
+<li><code><a title="convSearchPython.pipelines.baselines.PlainBM25Pipeline.name" href="baselines.html#convSearchPython.pipelines.baselines.PlainBM25Pipeline.name">name</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="convSearchPython.pipelines.historical.HistoricalQueryExpansionPipeline"><code class="flex name class">
+<span>class <span class="ident">HistoricalQueryExpansionPipeline</span></span>
+<span>(</span><span>query_map: Dict[str, Tuple[str, int]], conversations: Dict[str, List[str]], rs=10, rq=15, theta=30, v2=True, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Historical query expansion pipeline</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>rs</code></strong></dt>
+<dd>threshold for session keywords</dd>
+<dt><strong><code>rq</code></strong></dt>
+<dd>threshold for query keywords</dd>
+<dt><strong><code>theta</code></strong></dt>
+<dd>threshold for non ambiguous query</dd>
+<dt><strong><code>v2</code></strong></dt>
+<dd>if to use hqe v2</dd>
+<dt><strong><code>index</code></strong></dt>
+<dd>index name</dd>
+<dt><strong><code>metadata</code></strong></dt>
+<dd>metadata to retrieve</dd>
+<dt><strong><code>rm3</code></strong></dt>
+<dd>if to apply RM3</dd>
+<dt><strong><code>c</code></strong></dt>
+<dd>BM25 c parameter</dd>
+<dt><strong><code>fb_terms</code></strong></dt>
+<dd>RM3 term number</dd>
+<dt><strong><code>fb_docs</code></strong></dt>
+<dd>RM3 number of docs</dd>
+<dt><strong><code>fb_lambda</code></strong></dt>
+<dd>RM3 lambda</dd>
+<dt><strong><code>**kwargs</code></strong></dt>
+<dd>extra arguments</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class HistoricalQueryExpansionPipeline(PlainBM25Pipeline):
+    &#34;&#34;&#34;Historical query expansion pipeline&#34;&#34;&#34;
+    def __init__(self, query_map: QueryMap, conversations: Conversations,
+                 rs=10, rq=15, theta=30, v2=True, **kwargs):
+        &#34;&#34;&#34;
+        Args:
+            rs: threshold for session keywords
+            rq: threshold for query keywords
+            theta: threshold for non ambiguous query
+            v2: if to use hqe v2
+            index: index name
+            metadata: metadata to retrieve
+            rm3: if to apply RM3
+            c: BM25 c parameter
+            fb_terms: RM3 term number
+            fb_docs: RM3 number of docs
+            fb_lambda: RM3 lambda
+            **kwargs: extra arguments
+        &#34;&#34;&#34;
+        super().__init__(**kwargs)
+        self._rs = rs
+        self._rq = rq
+        self._theta = theta
+        self._query_map = query_map
+        self._conversations = conversations
+        self._v2 = parse_bool(v2)
+
+        if self._v2:
+            hqe = HistoricalQueryRewriter(session_relevant_threshold=rs,
+                                          query_relevant_threshold=rq,
+                                          non_ambiguous_threshold=theta,
+                                          **kwargs)
+        else:
+            hqe = HQERewriter(rs=rs, rq=rq, theta=theta, **kwargs)
+        self._steps: list = [hqe] + self._steps
+
+    @property
+    def name(self):
+        &#34;&#34;&#34;BM25_HQE_[rm3]&#34;&#34;&#34;
+        if self._apply_rm3:
+            return f&#39;{self._steps[1].name}_{self._steps[0].name}_{self._steps[2].name}&#39;
+        return f&#39;{self._steps[1].name}_{self._steps[0].name}_none&#39;
+
+    def run_on(self, queries: pd.DataFrame, parallel_pool: Optional[Pool] = None) -&gt; pd.DataFrame:
+        results = queries
+
+        if parallel_pool is None:
+            for step in self._steps:
+                results = step(results)
+            return results
+
+        for step in self._steps:
+            results = self._conv_parallel_run(step, parallel_pool, results, self._conversations)
+
+        return results</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="convSearchPython.pipelines.baselines.PlainBM25Pipeline" href="baselines.html#convSearchPython.pipelines.baselines.PlainBM25Pipeline">PlainBM25Pipeline</a></li>
+<li><a title="convSearchPython.pipelines.AbstractParallelPipeline" href="index.html#convSearchPython.pipelines.AbstractParallelPipeline">AbstractParallelPipeline</a></li>
+<li><a title="convSearchPython.pipelines.Pipeline" href="index.html#convSearchPython.pipelines.Pipeline">Pipeline</a></li>
+<li>abc.ABC</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="convSearchPython.pipelines.historical.HistoricalQueryAndAnswerExpansionPipeline" href="#convSearchPython.pipelines.historical.HistoricalQueryAndAnswerExpansionPipeline">HistoricalQueryAndAnswerExpansionPipeline</a></li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="convSearchPython.pipelines.historical.HistoricalQueryExpansionPipeline.name"><code class="name">var <span class="ident">name</span></code></dt>
+<dd>
+<div class="desc"><p>BM25_HQE_[rm3]</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def name(self):
+    &#34;&#34;&#34;BM25_HQE_[rm3]&#34;&#34;&#34;
+    if self._apply_rm3:
+        return f&#39;{self._steps[1].name}_{self._steps[0].name}_{self._steps[2].name}&#39;
+    return f&#39;{self._steps[1].name}_{self._steps[0].name}_none&#39;</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="convSearchPython.pipelines.baselines.PlainBM25Pipeline" href="baselines.html#convSearchPython.pipelines.baselines.PlainBM25Pipeline">PlainBM25Pipeline</a></b></code>:
+<ul class="hlist">
+<li><code><a title="convSearchPython.pipelines.baselines.PlainBM25Pipeline.__call__" href="index.html#convSearchPython.pipelines.Pipeline.__call__">__call__</a></code></li>
+<li><code><a title="convSearchPython.pipelines.baselines.PlainBM25Pipeline._conv_parallel_run" href="index.html#convSearchPython.pipelines.AbstractParallelPipeline._conv_parallel_run">_conv_parallel_run</a></code></li>
+<li><code><a title="convSearchPython.pipelines.baselines.PlainBM25Pipeline._parallel_run" href="index.html#convSearchPython.pipelines.AbstractParallelPipeline._parallel_run">_parallel_run</a></code></li>
+<li><code><a title="convSearchPython.pipelines.baselines.PlainBM25Pipeline.run_on" href="index.html#convSearchPython.pipelines.Pipeline.run_on">run_on</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="convSearchPython.pipelines.historical.HistoricalQueryAndAnswerExpansionPipeline"><code class="flex name class">
+<span>class <span class="ident">HistoricalQueryAndAnswerExpansionPipeline</span></span>
+<span>(</span><span>k: int = 100, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Pipeline that use HQExp for rewriting and HAExp for reranking</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>_lambda</code></strong></dt>
+<dd>decay factor</dd>
+<dt><strong><code>k</code></strong></dt>
+<dd>cutoff for returned docs</dd>
+<dt><strong><code>rs</code></strong></dt>
+<dd>threshold for session keywords</dd>
+<dt><strong><code>rq</code></strong></dt>
+<dd>threshold for query keywords</dd>
+<dt><strong><code>theta</code></strong></dt>
+<dd>threshold for non-ambiguous query</dd>
+<dt><strong><code>v2</code></strong></dt>
+<dd>if to use hqe v2</dd>
+<dt><strong><code>index</code></strong></dt>
+<dd>index name</dd>
+<dt><strong><code>metadata</code></strong></dt>
+<dd>metadata to retrieve</dd>
+<dt><strong><code>rm3</code></strong></dt>
+<dd>if to apply RM3</dd>
+<dt><strong><code>c</code></strong></dt>
+<dd>BM25 c parameter</dd>
+<dt><strong><code>fb_terms</code></strong></dt>
+<dd>RM3 term number</dd>
+<dt><strong><code>fb_docs</code></strong></dt>
+<dd>RM3 number of docs</dd>
+<dt><strong><code>fb_lambda</code></strong></dt>
+<dd>RM3 lambda</dd>
+<dt><strong><code>**kwargs</code></strong></dt>
+<dd>extra arguments</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class HistoricalQueryAndAnswerExpansionPipeline(HistoricalQueryExpansionPipeline):
+    &#34;&#34;&#34;Pipeline that use HQExp for rewriting and HAExp for reranking&#34;&#34;&#34;
+    def __init__(self, _lambda: float = 2, k: int = 100,
+                 **kwargs):
+        &#34;&#34;&#34;
+        Args:
+            _lambda: decay factor
+            k: cutoff for returned docs
+            rs: threshold for session keywords
+            rq: threshold for query keywords
+            theta: threshold for non-ambiguous query
+            v2: if to use hqe v2
+            index: index name
+            metadata: metadata to retrieve
+            rm3: if to apply RM3
+            c: BM25 c parameter
+            fb_terms: RM3 term number
+            fb_docs: RM3 number of docs
+            fb_lambda: RM3 lambda
+            **kwargs: extra arguments
+        &#34;&#34;&#34;
+        super().__init__(**kwargs)
+        self._lambda = _lambda
+        self._k = k
+        self._steps.append(HAEReranker(_lambda=_lambda, k=k, **kwargs))
+
+    @property
+    def name(self):
+        &#34;&#34;&#34;BM25_HQE_[rm3]_HAE&#34;&#34;&#34;
+        if self._apply_rm3:
+            i = 3
+        else:
+            i = 2
+        return super().name + self._steps[i].name</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="convSearchPython.pipelines.historical.HistoricalQueryExpansionPipeline" href="#convSearchPython.pipelines.historical.HistoricalQueryExpansionPipeline">HistoricalQueryExpansionPipeline</a></li>
+<li><a title="convSearchPython.pipelines.baselines.PlainBM25Pipeline" href="baselines.html#convSearchPython.pipelines.baselines.PlainBM25Pipeline">PlainBM25Pipeline</a></li>
+<li><a title="convSearchPython.pipelines.AbstractParallelPipeline" href="index.html#convSearchPython.pipelines.AbstractParallelPipeline">AbstractParallelPipeline</a></li>
+<li><a title="convSearchPython.pipelines.Pipeline" href="index.html#convSearchPython.pipelines.Pipeline">Pipeline</a></li>
+<li>abc.ABC</li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="convSearchPython.pipelines.historical.HistoricalQueryAndAnswerExpansionPipeline.name"><code class="name">var <span class="ident">name</span></code></dt>
+<dd>
+<div class="desc"><p>BM25_HQE_[rm3]_HAE</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def name(self):
+    &#34;&#34;&#34;BM25_HQE_[rm3]_HAE&#34;&#34;&#34;
+    if self._apply_rm3:
+        i = 3
+    else:
+        i = 2
+    return super().name + self._steps[i].name</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="convSearchPython.pipelines.historical.HistoricalQueryExpansionPipeline" href="#convSearchPython.pipelines.historical.HistoricalQueryExpansionPipeline">HistoricalQueryExpansionPipeline</a></b></code>:
+<ul class="hlist">
+<li><code><a title="convSearchPython.pipelines.historical.HistoricalQueryExpansionPipeline.__call__" href="index.html#convSearchPython.pipelines.Pipeline.__call__">__call__</a></code></li>
+<li><code><a title="convSearchPython.pipelines.historical.HistoricalQueryExpansionPipeline._conv_parallel_run" href="index.html#convSearchPython.pipelines.AbstractParallelPipeline._conv_parallel_run">_conv_parallel_run</a></code></li>
+<li><code><a title="convSearchPython.pipelines.historical.HistoricalQueryExpansionPipeline._parallel_run" href="index.html#convSearchPython.pipelines.AbstractParallelPipeline._parallel_run">_parallel_run</a></code></li>
+<li><code><a title="convSearchPython.pipelines.historical.HistoricalQueryExpansionPipeline.run_on" href="index.html#convSearchPython.pipelines.Pipeline.run_on">run_on</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul>
+<li><a href="#hqe-historical-query-expansion">HQE: Historical Query Expansion</a></li>
+<li><a href="#hae-historical-answer-expansion">HAE: Historical Answer Expansion</a></li>
+</ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="convSearchPython.pipelines" href="index.html">convSearchPython.pipelines</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="convSearchPython.pipelines.historical.BM25TokenPipeline" href="#convSearchPython.pipelines.historical.BM25TokenPipeline">BM25TokenPipeline</a></code></h4>
+<ul class="">
+<li><code><a title="convSearchPython.pipelines.historical.BM25TokenPipeline.run_on" href="#convSearchPython.pipelines.historical.BM25TokenPipeline.run_on">run_on</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="convSearchPython.pipelines.historical.HistoricalQueryExpansionPipeline" href="#convSearchPython.pipelines.historical.HistoricalQueryExpansionPipeline">HistoricalQueryExpansionPipeline</a></code></h4>
+<ul class="">
+<li><code><a title="convSearchPython.pipelines.historical.HistoricalQueryExpansionPipeline.name" href="#convSearchPython.pipelines.historical.HistoricalQueryExpansionPipeline.name">name</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="convSearchPython.pipelines.historical.HistoricalQueryAndAnswerExpansionPipeline" href="#convSearchPython.pipelines.historical.HistoricalQueryAndAnswerExpansionPipeline">HistoricalQueryAndAnswerExpansionPipeline</a></code></h4>
+<ul class="">
+<li><code><a title="convSearchPython.pipelines.historical.HistoricalQueryAndAnswerExpansionPipeline.name" href="#convSearchPython.pipelines.historical.HistoricalQueryAndAnswerExpansionPipeline.name">name</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

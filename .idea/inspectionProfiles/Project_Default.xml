@@ -1,0 +1,29 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="2">
+            <item index="0" class="java.lang.String" itemvalue="jnius" />
+            <item index="1" class="java.lang.String" itemvalue="pyterrier" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="pyterrier.Experiment" />
+          <option value="pyterrier.BatchRetrieve" />
+          <option value="allennlp.predictors.predictor.Predictor.coref_resolved" />
+          <option value="utils.metrics.*" />
+          <option value="searching.experiments.*" />
+          <option value="pyterrier.DFIndexer" />
+          <option value="pyterrier.IterDictIndexer" />
+          <option value="pyterrier.get_dataset" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

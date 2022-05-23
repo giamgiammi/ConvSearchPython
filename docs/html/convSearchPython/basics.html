@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>convSearchPython.basics API documentation</title>
+<meta name="description" content="Initialize common objects, logs, pyterrier and load configuration …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML" integrity="sha256-kZafAc6mZvK3W3v1pHOcUix30OHQN6pU/NO2oFkqZVw=" crossorigin></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>convSearchPython.basics</code></h1>
+</header>
+<section id="section-intro">
+<p>Initialize common objects, logs, pyterrier and load configuration.</p>
+<h1 id="configuration">Configuration</h1>
+<p>The configuration is loaded from a file named 'conf.ini' inside the current directory at execution.</p>
+<p>It's structured in 5 sections.</p>
+<h2 id="sections">Sections</h2>
+<h3 id="general">General</h3>
+<dl>
+<dt>threads</dt>
+<dd>number of threads to use during index creation. This will not affect run parallelization.
+Note that if you need a deterministic index it should be set to 1</dd>
+<dt>buffer_size_bytes</dt>
+<dd>number of bytes for buffering dataset files during index creation</dd>
+<dt>workdir</dt>
+<dd>path to the work directory. Here's where run will be saved</dd>
+<dt>cache_dir</dt>
+<dd>path to the directory where cache can be saved. Not setting disable cache</dd>
+</dl>
+<h3 id="msmarco">MsMarco</h3>
+<p>These value are needed to load the msmarco dataset</p>
+<dl>
+<dt>collection</dt>
+<dd>path to collection tsv file</dd>
+<dt>duplicates</dt>
+<dd>path to duplicates txt file</dd>
+</dl>
+<h3 id="trec-car">Trec CAR</h3>
+<p>These value are needed to load the Trec CAR dataset</p>
+<dl>
+<dt>collection</dt>
+<dd>path to collection cbor file</dd>
+</dl>
+<h3 id="terrier">Terrier</h3>
+<p>These values are used to setup terrier</p>
+<dl>
+<dt>JAVA_HOME</dt>
+<dd>path to the java JRE home directory to use for terrier. You are required to provide this
+(except in a singularity environment)</dd>
+<dt>version</dt>
+<dd>pyterrier version to load</dd>
+</dl>
+<h3 id="indexes">Indexes</h3>
+<p>Here are defined the indexes to use with this application.
+For every index_name:</p>
+<dl>
+<dt>index_name.path</dt>
+<dd>The path to the folder where the index resides. This parameter is <strong>required</strong></dd>
+</dl>
+<p>For every property that you want to set on the index use:</p>
+<dl>
+<dt>index_name.prop_name</dt>
+<dd>Value of the property 'prop_name' of index 'index_name'</dd>
+</dl>
+<p>You are free to set no properties, the pyterrier defaults will be used.</p>
+<h2 id="example">Example</h2>
+<details>
+<summary>config.ini</summary>
+<pre><code>[GENERAL]
+threads = 1
+buffer_size_bytes = 10240
+workdir = workdir
+cache_dir = workdir/cache
+
+[MSMARCO]
+collection = /home/user/Datasets/cast2019/MSMARCO/collection.tsv
+duplicates = /home/user/Datasets/cast2019/duplicate_list_v1.0.txt
+
+[TREC_CAR]
+collection=/home/user/Datasets/cast2019/TREC_CAR/paragraphCorpus/dedup.articles-paragraphs.cbor
+
+[TERRIER]
+JAVA_HOME=/lib/jvm/default
+version=5.5-custom
+
+[INDEXES]
+custom = /home/user/Indexes/myCastIndex
+custom.stopwords.filename = ./indri-stopwords.txt
+custom.termpipelines = Stopwords,KrovetzStemmer
+
+default.path = /home/user/Indexes/DefaultCastIndex
+
+lucene_like.path = /home/user/Indexes/LuceneLikeCastIndex
+lucene_like.stopwords.filename = ./lucene_stopwords.txt
+lucene_like.termpipelines = Stopwords,PorterStemmer
+</code></pre>
+</details>
+<h1 id="singularity-environment">Singularity environment</h1>
+<p>If a singularity environment (by checking if the environment variable 'SINGULARITY_ENVIRONMENT' is set)
+is detected then some extra passage are executed:</p>
+<ul>
+<li>It searches for an additional file 'conf_singularity.ini' and add it to the conf (if exists)
+overriding already presents value (make easier to have a different configuration for singularity)</li>
+<li>If the environment variable 'JAVA_HOME' is set, then its value is used instead of the one in conf.ini</li>
+</ul>
+<h1 id="usage">Usage</h1>
+<pre><code># load pyterrier
+import convSearchPython.basics
+
+# obtain main config
+from convSearchPython.basics import conf  # conf is of type `configparser.ConfigParser`
+</code></pre>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+Initialize common objects, logs, pyterrier and load configuration.
+
+# Configuration
+The configuration is loaded from a file named &#39;conf.ini&#39; inside the current directory at execution.
+
+It&#39;s structured in 5 sections.
+
+## Sections
+
+### General
+
+threads 
+:   number of threads to use during index creation. This will not affect run parallelization.
+    Note that if you need a deterministic index it should be set to 1
+    
+buffer_size_bytes
+:   number of bytes for buffering dataset files during index creation
+
+workdir
+:    path to the work directory. Here&#39;s where run will be saved
+
+cache_dir
+:   path to the directory where cache can be saved. Not setting disable cache
+
+
+### MsMarco
+These value are needed to load the msmarco dataset
+
+collection
+:   path to collection tsv file
+
+duplicates
+:   path to duplicates txt file
+
+
+### Trec CAR
+These value are needed to load the Trec CAR dataset
+
+collection
+:   path to collection cbor file
+
+
+### Terrier
+These values are used to setup terrier
+
+JAVA_HOME
+:   path to the java JRE home directory to use for terrier. You are required to provide this 
+    (except in a singularity environment)
+
+version
+:   pyterrier version to load
+
+### Indexes
+Here are defined the indexes to use with this application.
+For every index_name:
+
+index_name.path
+:   The path to the folder where the index resides. This parameter is **required**
+
+For every property that you want to set on the index use:
+
+index_name.prop_name
+:   Value of the property &#39;prop_name&#39; of index &#39;index_name&#39;
+
+You are free to set no properties, the pyterrier defaults will be used.
+
+## Example
+&lt;details&gt;
+    &lt;summary&gt;config.ini&lt;/summary&gt;
+    
+```
+[GENERAL]
+threads = 1
+buffer_size_bytes = 10240
+workdir = workdir
+cache_dir = workdir/cache
+
+[MSMARCO]
+collection = /home/user/Datasets/cast2019/MSMARCO/collection.tsv
+duplicates = /home/user/Datasets/cast2019/duplicate_list_v1.0.txt
+
+[TREC_CAR]
+collection=/home/user/Datasets/cast2019/TREC_CAR/paragraphCorpus/dedup.articles-paragraphs.cbor
+
+[TERRIER]
+JAVA_HOME=/lib/jvm/default
+version=5.5-custom
+
+[INDEXES]
+custom = /home/user/Indexes/myCastIndex
+custom.stopwords.filename = ./indri-stopwords.txt
+custom.termpipelines = Stopwords,KrovetzStemmer
+
+default.path = /home/user/Indexes/DefaultCastIndex
+
+lucene_like.path = /home/user/Indexes/LuceneLikeCastIndex
+lucene_like.stopwords.filename = ./lucene_stopwords.txt
+lucene_like.termpipelines = Stopwords,PorterStemmer
+```
+&lt;/details&gt;
+# Singularity environment
+If a singularity environment (by checking if the environment variable &#39;SINGULARITY_ENVIRONMENT&#39; is set)
+is detected then some extra passage are executed:
+
+- It searches for an additional file &#39;conf_singularity.ini&#39; and add it to the conf (if exists)
+overriding already presents value (make easier to have a different configuration for singularity)
+- If the environment variable &#39;JAVA_HOME&#39; is set, then its value is used instead of the one in conf.ini
+
+# Usage
+```
+# load pyterrier
+import convSearchPython.basics
+
+# obtain main config
+from convSearchPython.basics import conf  # conf is of type `configparser.ConfigParser`
+```
+&#34;&#34;&#34;
+import logging
+from configparser import ConfigParser
+from os import environ
+from pathlib import Path
+from sys import stdout
+
+import pyterrier
+
+conf_file = &#39;config.ini&#39;
+if not Path(conf_file).exists():
+    raise Exception(f&#39;config file {conf_file} does not exist. Normally this happen if the current directory is not &#39;
+                    &#39;the project top level&#39;)
+conf = ConfigParser()
+conf.read(conf_file)
+
+QUIET = bool(environ.get(&#39;WORKER_PROCESS&#39;))
+
+LOG_FORMAT = &#39;%(asctime)s %(levelname)s - %(name)s: %(message)s&#39;
+logging.basicConfig(format=LOG_FORMAT, stream=stdout)
+logging.root.setLevel(logging.INFO)
+
+SINGULARITY = bool(environ.get(&#39;SINGULARITY_ENVIRONMENT&#39;))
+if SINGULARITY:
+    if not QUIET:
+        print(&#39;Detected singularity environment&#39;)
+    if Path(&#39;conf_singularity.ini&#39;).exists():
+        conf.read(&#39;conf_singularity.ini&#39;)
+        if not QUIET:
+            print(&#39;added conf_singularity.ini to conf&#39;)
+    if bool(environ[&#39;JAVA_HOME&#39;]):
+        if not QUIET:
+            print(f&#39;using default JAVA_HOME: {environ[&#34;JAVA_HOME&#34;]}&#39;)
+    else:
+        environ[&#39;JAVA_HOME&#39;] = conf.get(&#39;TERRIER&#39;, &#39;JAVA_HOME&#39;)
+else:
+    environ[&#39;JAVA_HOME&#39;] = conf.get(&#39;TERRIER&#39;, &#39;JAVA_HOME&#39;)
+
+if not pyterrier.started():
+    pyterrier.init(boot_packages=[&#34;com.github.terrierteam:terrier-prf:-SNAPSHOT&#34;],
+                   version=conf.get(&#34;TERRIER&#34;, &#34;version&#34;), mem=environ.get(&#39;HEAP&#39;))
+    if not pyterrier.started():
+        raise Exception(&#39;something\&#39;s wrong with pyterrier init&#39;)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul>
+<li><a href="#configuration">Configuration</a><ul>
+<li><a href="#sections">Sections</a><ul>
+<li><a href="#general">General</a></li>
+<li><a href="#msmarco">MsMarco</a></li>
+<li><a href="#trec-car">Trec CAR</a></li>
+<li><a href="#terrier">Terrier</a></li>
+<li><a href="#indexes">Indexes</a></li>
+</ul>
+</li>
+<li><a href="#example">Example</a></li>
+</ul>
+</li>
+<li><a href="#singularity-environment">Singularity environment</a></li>
+<li><a href="#usage">Usage</a></li>
+</ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="convSearchPython" href="index.html">convSearchPython</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

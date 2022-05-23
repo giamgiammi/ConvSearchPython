@@ -1,0 +1,43 @@
+Bootstrap: docker
+From: python:3.8-slim-bullseye
+
+%files
+    requirements.txt /opt/requirements.txt
+
+%post
+    set -e # stop after first error
+
+    apt-get update 
+    apt-get upgrade -y 
+    apt-get install -y ca-certificates build-essential git lz4 openjdk-17-jdk
+    update-ca-certificates --fresh 
+    apt-get clean
+
+    pip install --no-cache-dir -U pip 
+
+    #lz4 from source
+    pip install --no-cache-dir --no-binary lz4 lz4 
+
+    #neuralcoref from source
+    cd /opt 
+    git clone https://github.com/huggingface/neuralcoref 
+    cd neuralcoref 
+    git reset --hard 60338df6f9b0a44a6728b442193b7c66653b0731 
+    pip install --no-cache-dir -r requirements.txt 
+    pip install --no-cache-dir -e ./ 
+    python -m spacy download en 
+    cd ~ 
+
+    #torch with cuda 11.3
+    pip install --no-cache-dir torch==1.10.0+cu113 torchvision==0.11.1+cu113 torchaudio==0.10.0+cu113 -f https://download.pytorch.org/whl/cu113/torch_stable.html 
+
+    # req
+    pip install --no-cache-dir -r /opt/requirements.txt 
+
+
+%environment
+    export JAVA_HOME="/usr/lib/jvm/java-17-openjdk-amd64"
+    export PATH="$JAVA_HOME/bin:$PATH"
+    export SSL_CERT_DIR=/etc/ssl/certs
+
+

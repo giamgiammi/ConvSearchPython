@@ -1,0 +1,172 @@
+PyTerrier 0.7.1 has loaded Terrier 5.5 (built by gianmarco on 2021-10-12 12:20)
+@startuml
+class convSearchPython.pipelines.AbstractPipeline {
+}
+class convSearchPython.pipelines.CachedPipelineInterface {
+}
+class convSearchPython.pipelines.baselines.ConcatQueryPipeline {
+}
+class convSearchPython.pipelines.baselines.ContextQueryPipeline {
+}
+class convSearchPython.pipelines.baselines.Coreference1Pipeline {
+  _cache_dir: None
+  _allow_cuda: None
+  _autosave_cache: None
+}
+class convSearchPython.pipelines.baselines.Coreference2Pipeline {
+}
+class convSearchPython.pipelines.baselines.FirstQueryPipeline {
+}
+class convSearchPython.pipelines.baselines.GenericQueryNeedingDLMPipeline {
+  _queries: DataFrame
+  _conversations: Dict[str, List[str]]
+  _query_map: Dict[str, Tuple[str, int]]
+}
+enum convSearchPython.pipelines.Index {
+  original_index: /home/gianmarco/Documenti/Projects/TesiM/CAsT_index {static}
+  kstem_istops_index: /home/gianmarco/Documenti/Projects/TesiM/myCastIndex {static}
+  default_index: ../DefaultCastIndex {static}
+  lucene_like: ../LuceneLikeCastIndex {static}
+}
+class convSearchPython.pipelines.baselines.PlainBM25Pipeline {
+  _c: None
+  _index: Index
+  _metadata: None
+  _fb_terms: None
+  _fb_docs: None
+  _fb_lambda: None
+  _apply_rm3: None
+}
+class convSearchPython.pipelines.baselines.PlainPipeline {
+  _index: Index
+  _metadata: None
+  _fb_terms: None
+  _fb_docs: None
+  _fb_lambda: None
+  _apply_rm3: None
+  _mu: None
+}
+class convSearchPython.pipelines.QueriesStructNeedingInterface {
+}
+enum convSearchPython.pipelines.RetrieveMetadata {
+  DEFAULT: ['docno'] {static}
+  ALL: ['docno', 'text'] {static}
+}
+class convSearchPython.pipelines.RewritingPipelineInterface {
+}
+class convSearchPython.pipelines.bottom_up.BottomUpPipeline {
+  _query_map: Dict[str, Tuple[str, int]]
+  _conversations: Dict[str, List[str]]
+  _wrapped_pipeline: None
+  _multiplier: None
+  _max_rank: None
+}
+class convSearchPython.pipelines.bottom_up.BottomUpUamPipeline {
+  __multiplier: None
+  __max_rank: None
+  _conversations: Dict[str, List[str]]
+  _mu: None
+}
+class convSearchPython.pipelines.dbpedia.DBPediaPipeline {
+  _num_snippets: None
+}
+class convSearchPython.pipelines.filtered.FilteredPipeline {
+  _query_map: Dict[str, Tuple[str, int]]
+  _conversations: Dict[str, List[str]]
+  _wrapped_pipeline: None
+  _multiplier: None
+  _max_rank: None
+}
+class convSearchPython.pipelines.historical.BM25TokenPipeline {
+}
+class convSearchPython.pipelines.CustomIndex {
+  _index: None
+  _properties: None
+}
+class convSearchPython.pipelines.historical.HistoricalAnswerExpansionPipeline {
+  _query_map: Dict[str, Tuple[str, int]]
+  _conversations: Dict[str, List[str]]
+  _wrapped_pipeline: None
+  _lambda: float
+  _k: int
+}
+class convSearchPython.pipelines.historical.HistoricalQueryAndAnswerExpansionPipeline {
+  _lambda: float
+  _k: int
+}
+class convSearchPython.pipelines.historical.HistoricalQueryExpansionPipeline {
+  _rs: None
+  _rq: None
+  _theta: None
+  _c: None
+  _query_map: Dict[str, Tuple[str, int]]
+  _conversations: Dict[str, List[str]]
+  _v2: None
+}
+class convSearchPython.pipelines.sub_index.SubIndexPipeline {
+  _index_base_results: None
+  _rerun_first: None
+  _bm25_on_first: None
+  _c: None
+  _sub_fb_terms: None
+  _sub_fb_docs: None
+  _sub_fb_lambda: None
+  _sub_apply_rm3: None
+  _index: Index
+  _metadata: RetrieveMetadata
+  _fb_terms: None
+  _fb_docs: None
+  _fb_lambda: None
+  _apply_rm3: None
+  _mu: None
+  _queries: DataFrame
+  _conversations: Dict[str, List[str]]
+  _query_map: Dict[str, Tuple[str, int]]
+  _query_map: Dict[str, Tuple[str, int]]
+  _conversations: Dict[str, List[str]]
+  _sub_cls: Type[AbstractPipeline]
+  _sub_params: None
+  _wrapped_pipeline: None
+}
+convSearchPython.pipelines.baselines.GenericQueryNeedingDLMPipeline <|-- convSearchPython.pipelines.baselines.ConcatQueryPipeline
+convSearchPython.pipelines.RewritingPipelineInterface <|-- convSearchPython.pipelines.baselines.ConcatQueryPipeline
+convSearchPython.pipelines.baselines.GenericQueryNeedingDLMPipeline <|-- convSearchPython.pipelines.baselines.ContextQueryPipeline
+convSearchPython.pipelines.RewritingPipelineInterface <|-- convSearchPython.pipelines.baselines.ContextQueryPipeline
+convSearchPython.pipelines.baselines.GenericQueryNeedingDLMPipeline <|-- convSearchPython.pipelines.baselines.Coreference1Pipeline
+convSearchPython.pipelines.CachedPipelineInterface <|-- convSearchPython.pipelines.baselines.Coreference1Pipeline
+convSearchPython.pipelines.RewritingPipelineInterface <|-- convSearchPython.pipelines.baselines.Coreference1Pipeline
+convSearchPython.pipelines.baselines.GenericQueryNeedingDLMPipeline <|-- convSearchPython.pipelines.baselines.Coreference2Pipeline
+convSearchPython.pipelines.RewritingPipelineInterface <|-- convSearchPython.pipelines.baselines.Coreference2Pipeline
+convSearchPython.pipelines.baselines.GenericQueryNeedingDLMPipeline <|-- convSearchPython.pipelines.baselines.FirstQueryPipeline
+convSearchPython.pipelines.RewritingPipelineInterface <|-- convSearchPython.pipelines.baselines.FirstQueryPipeline
+convSearchPython.pipelines.baselines.PlainPipeline <|-- convSearchPython.pipelines.baselines.GenericQueryNeedingDLMPipeline
+convSearchPython.pipelines.QueriesStructNeedingInterface <|-- convSearchPython.pipelines.baselines.GenericQueryNeedingDLMPipeline
+convSearchPython.pipelines.baselines.PlainBM25Pipeline *-- convSearchPython.pipelines.Index
+convSearchPython.pipelines.AbstractPipeline <|-- convSearchPython.pipelines.baselines.PlainBM25Pipeline
+convSearchPython.pipelines.baselines.PlainPipeline *-- convSearchPython.pipelines.Index
+convSearchPython.pipelines.AbstractPipeline <|-- convSearchPython.pipelines.baselines.PlainPipeline
+convSearchPython.pipelines.AbstractPipeline <|-- convSearchPython.pipelines.bottom_up.BottomUpPipeline
+convSearchPython.pipelines.QueriesStructNeedingInterface <|-- convSearchPython.pipelines.bottom_up.BottomUpPipeline
+convSearchPython.pipelines.CachedPipelineInterface <|-- convSearchPython.pipelines.bottom_up.BottomUpPipeline
+convSearchPython.pipelines.baselines.PlainBM25Pipeline <|-- convSearchPython.pipelines.bottom_up.BottomUpUamPipeline
+convSearchPython.pipelines.QueriesStructNeedingInterface <|-- convSearchPython.pipelines.bottom_up.BottomUpUamPipeline
+convSearchPython.pipelines.baselines.GenericQueryNeedingDLMPipeline <|-- convSearchPython.pipelines.dbpedia.DBPediaPipeline
+convSearchPython.pipelines.baselines.PlainBM25Pipeline <|-- convSearchPython.pipelines.dbpedia.DBPediaPipeline
+convSearchPython.pipelines.AbstractPipeline <|-- convSearchPython.pipelines.filtered.FilteredPipeline
+convSearchPython.pipelines.QueriesStructNeedingInterface <|-- convSearchPython.pipelines.filtered.FilteredPipeline
+convSearchPython.pipelines.CachedPipelineInterface <|-- convSearchPython.pipelines.filtered.FilteredPipeline
+convSearchPython.pipelines.baselines.PlainBM25Pipeline <|-- convSearchPython.pipelines.historical.BM25TokenPipeline
+convSearchPython.pipelines.AbstractPipeline <|-- convSearchPython.pipelines.historical.HistoricalAnswerExpansionPipeline
+convSearchPython.pipelines.QueriesStructNeedingInterface <|-- convSearchPython.pipelines.historical.HistoricalAnswerExpansionPipeline
+convSearchPython.pipelines.CachedPipelineInterface <|-- convSearchPython.pipelines.historical.HistoricalAnswerExpansionPipeline
+convSearchPython.pipelines.historical.HistoricalQueryExpansionPipeline <|-- convSearchPython.pipelines.historical.HistoricalQueryAndAnswerExpansionPipeline
+convSearchPython.pipelines.baselines.PlainBM25Pipeline <|-- convSearchPython.pipelines.historical.HistoricalQueryExpansionPipeline
+convSearchPython.pipelines.QueriesStructNeedingInterface <|-- convSearchPython.pipelines.historical.HistoricalQueryExpansionPipeline
+convSearchPython.pipelines.sub_index.SubIndexPipeline *-- convSearchPython.pipelines.Index
+convSearchPython.pipelines.sub_index.SubIndexPipeline *-- convSearchPython.pipelines.RetrieveMetadata
+convSearchPython.pipelines.sub_index.SubIndexPipeline *-- convSearchPython.pipelines.AbstractPipeline
+convSearchPython.pipelines.AbstractPipeline <|-- convSearchPython.pipelines.sub_index.SubIndexPipeline
+convSearchPython.pipelines.QueriesStructNeedingInterface <|-- convSearchPython.pipelines.sub_index.SubIndexPipeline
+convSearchPython.pipelines.CachedPipelineInterface <|-- convSearchPython.pipelines.sub_index.SubIndexPipeline
+@enduml
+

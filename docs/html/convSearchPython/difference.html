@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>convSearchPython.difference API documentation</title>
+<meta name="description" content="Find different in docs returned by different methods" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML" integrity="sha256-kZafAc6mZvK3W3v1pHOcUix30OHQN6pU/NO2oFkqZVw=" crossorigin></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>convSearchPython.difference</code></h1>
+</header>
+<section id="section-intro">
+<p>Find different in docs returned by different methods</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;Find different in docs returned by different methods&#34;&#34;&#34;
+import argparse
+import datetime
+from pathlib import Path
+from typing import Tuple, Iterable, Dict, Set
+
+import pandas as pd
+
+from convSearchPython.utils.evaluation import evaluation_key
+
+
+def get_run_paths_interactively() -&gt; Tuple[Path]:
+    &#34;&#34;&#34;Interactively ask for run paths&#34;&#34;&#34;
+    runs = []
+    while True:
+        r = input(&#39;Run file/folder to load (end with void line):&#39;).strip()
+        if r == &#39;&#39;:
+            break
+        path = Path(r)
+        if path.is_dir():
+            runs += list(path.glob(&#39;*.pkl.gz&#39;))
+        else:
+            runs.append(path.absolute())
+    if len(runs) == 0:
+        raise Exception(&#39;No run file specified&#39;)
+    return tuple(runs)
+
+
+def get_run_paths(runs: Iterable[Path]) -&gt; Tuple[Path]:
+    &#34;&#34;&#34;Get the run paths from a collection of paths expanding the folders&#34;&#34;&#34;
+    run_paths = []
+    for p in runs:
+        if p.is_dir():
+            run_paths += list(p.glob(&#39;*.pkl.gz&#39;))
+        else:
+            run_paths.append(p.absolute())
+    return tuple(run_paths)
+
+
+def get_names_runs(run_paths: Iterable[Path]) -&gt; Tuple[Set[str], Dict[str, pd.DataFrame]]:
+    &#34;&#34;&#34;Load the runs and return methods names and runs datasets&#34;&#34;&#34;
+    runs = {}
+    names = set()
+    for p in run_paths:
+        data: pd.DataFrame = pd.read_pickle(str(p))
+        data = data.sort_values([&#39;name&#39;, &#39;qid&#39;, &#39;rank&#39;], key=evaluation_key)
+        _names = pd.unique(data[&#39;name&#39;])
+        if len(_names) &gt; 1:
+            for n in _names:
+                if n in runs:
+                    raise Exception(f&#39;Duplicated name {n}&#39;)
+                runs[n] = data[data[&#39;name&#39;] == n]
+        elif len(_names) == 1:
+            if _names[0] in runs:
+                raise Exception(f&#39;Duplicated name {_names[0]}&#39;)
+            runs[_names[0]] = data
+        else:
+            raise Exception(f&#39;no column name in {p}&#39;)
+        names = names.union(_names)
+    return names, runs
+
+
+def limit_queries(data: pd.DataFrame, k: int) -&gt; pd.DataFrame:
+    &#34;&#34;&#34;Limit the number of queries
+
+    - data: original dataframe
+    - k: limit at the top-k queries
+    - min_label: consider only row with label &gt;= of this value&#34;&#34;&#34;
+    parts = []
+    for _, group in data.groupby([&#39;qid&#39;, &#39;name&#39;]):
+        if len(group) &lt;= k:
+            parts.append(group)
+        else:
+            parts.append(group[:k])
+    return pd.concat(parts)
+
+
+def get_unique_docs(runs: Dict[str, pd.DataFrame]) -&gt; Dict[str, set]:
+    &#34;&#34;&#34;For every dataframe in runs, generate a set of the docs absents inside other dataframes&#34;&#34;&#34;
+    docs_per_df = {}
+    for name, df in runs.items():
+        docs_per_df[name] = set(pd.unique(df[&#39;docno&#39;]))
+    unique_docs = {}
+    for name, docs in docs_per_df.items():
+        others = set()
+        for _name, _docs in docs_per_df.items():
+            if name != _name:
+                others = others.union(_docs)
+        unique_docs[name] = docs.difference(others)
+    return unique_docs
+
+
+def add_rm3_comparison(runs: Dict[str, pd.DataFrame], unique_docs: Dict[str, set]):
+    &#34;&#34;&#34;Update runs and unique_docs with rm3 comparison&#34;&#34;&#34;
+    pairs = []
+    seen = set()
+    for name, data in runs.items():
+        base_name = name[:-4] if name.endswith(&#39; RM3&#39;) else name
+        if base_name not in seen:
+            pairs.append((base_name, f&#39;{base_name} RM3&#39;))
+            seen.add(base_name)
+    for base, rm3 in pairs:
+        uniq_rm3 = get_unique_docs({base: runs[base], rm3: runs[rm3]})
+        index = f&#39;{base} - RM3 comparison&#39;
+        runs[index] = pd.concat((runs[base], runs[rm3]))
+        unique_docs[index] = uniq_rm3[base].union(uniq_rm3[rm3])
+
+
+def write_excel(runs: Dict[str, pd.DataFrame], unique_docs: Dict[str, set], output_path: Path, info: pd.Series):
+    &#34;&#34;&#34;Write excel with unique docs rows&#34;&#34;&#34;
+    with pd.ExcelWriter(str(output_path), mode=&#39;w&#39;) as excel_file:
+        info.to_excel(excel_file, sheet_name=&#39;INFO&#39;, header=False)
+        excel_file.sheets[&#39;INFO&#39;].set_column(0, 0, 15)
+        excel_file.sheets[&#39;INFO&#39;].set_column(1, 1, 50)
+        for name, docs in unique_docs.items():
+            data = runs[name]
+            cols = [c for c in data.columns if c.startswith(&#39;query&#39;)]
+            cols = [&#39;name&#39;, &#39;qid&#39;, &#39;docno&#39;, &#39;rank&#39;, &#39;score&#39;, &#39;label&#39;, &#39;text&#39;] + cols
+            data[data[&#39;docno&#39;].isin(docs)][cols] \
+                .to_excel(excel_file, sheet_name=name, index=False)
+
+
+def main():
+    started = datetime.datetime.now()
+    arg_parser = argparse.ArgumentParser(description=__doc__)
+    arg_parser.add_argument(&#39;run&#39;, action=&#39;store&#39;, type=Path,
+                            help=&#39;run file or directory containing run files to load&#39;, nargs=&#39;*&#39;, default=[])
+    arg_parser.add_argument(&#39;-k, --top-k&#39;, action=&#39;store&#39;, type=int, dest=&#39;k&#39;, default=0,
+                            help=&#39;Limit search at top-k docs&#39;)
+    arg_parser.add_argument(&#39;-l, --min-label&#39;, action=&#39;store&#39;, type=int, dest=&#39;label&#39;, default=-1,
+                            help=&#39;Minimum label value to consider&#39;)
+    arg_parser.add_argument(&#39;-o, --output&#39;, action=&#39;store&#39;, type=Path, dest=&#39;out&#39;,
+                            help=&#39;path where to write the excel file (default to unique.xlsx in the parent &#39;
+                                 &#39;of the first run argument)&#39;, default=None)
+    arg_parser.add_argument(&#39;-r, --rm3-comparison&#39;, action=&#39;store_true&#39;, dest=&#39;rm3&#39;, default=False,
+                            help=&#39;include RM3 comparison&#39;)
+
+    opt = arg_parser.parse_args()
+    print(opt)
+
+    run_paths = get_run_paths(opt.run) if opt.run else get_run_paths_interactively()
+
+    names, runs = get_names_runs(run_paths)
+
+    print(names)
+    print(&#39;runs: {\n&#39; + &#39;\n\t&#39;.join(f&#39;len({n}): {len(d)}&#39; for n, d in runs.items()) + &#39;\n}&#39;)
+
+    if opt.label &gt;= 0:
+        for name, df in runs.items():
+            runs[name] = df[df[&#39;label&#39;] &gt;= opt.label]
+
+    if opt.k &gt; 0:
+        for name, df in runs.items():
+            runs[name] = limit_queries(df, opt.k)
+        print(&#39;runs: {\n&#39; + &#39;\n\t&#39;.join(f&#39;len({n}): {len(d)}&#39; for n, d in runs.items()) + &#39;\n}&#39;)
+
+    unique_docs = get_unique_docs(runs)
+
+    if opt.rm3:
+        add_rm3_comparison(runs, unique_docs)
+
+    output_path: Path = opt.out
+    if output_path is None:
+        output_path = opt.run[0].parent.absolute() if opt.run else run_paths[0].parent.absolute()
+        output_path = Path(output_path, &#39;unique.xlsx&#39;).absolute()
+    else:
+        output_path = output_path.absolute()
+        s_out = str(output_path)
+        if not (s_out.endswith(&#39;.xlsx&#39;) or s_out.endswith(&#39;.ods&#39;) or s_out.endswith(&#39;.xlsx&#39;)):
+            output_path = Path(str(output_path) + &#39;.xlsx&#39;)
+    print(f&#39;output_path: {output_path}&#39;)
+
+    # _info = {
+    #     &#39;created at&#39;: f&#39;{started} - {datetime.datetime.now()}&#39;,
+    #     &#39;top k&#39;: opt.k if opt.k &gt; 0 else &#39;no limit&#39;,
+    #     &#39;min label&#39;: opt.label if opt.label &gt;= 0 else &#39;no limit&#39;,
+    #     &#39;rm3 comparison&#39;: &#39;included&#39; if opt.rm3 else &#39;excluded&#39;,
+    #     &#39;run paths&#39;: [str(x) for x in run_paths],
+    # }
+    info = pd.Series(dtype=&#39;object&#39;)
+    info[&#39;created at&#39;] = f&#39;{started} - {datetime.datetime.now()}&#39;
+    info[&#39;top k&#39;] = opt.k if opt.k &gt; 0 else &#39;no limit&#39;
+    info[&#39;min label&#39;] = opt.label if opt.label &gt;= 0 else &#39;no limit&#39;
+    info[&#39;rm3 comparison&#39;] = &#39;included&#39; if opt.rm3 else &#39;excluded&#39;
+    write_excel(runs, unique_docs, output_path, info)
+
+
+if __name__ == &#39;__main__&#39;:
+    main()</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="convSearchPython.difference.get_run_paths_interactively"><code class="name flex">
+<span>def <span class="ident">get_run_paths_interactively</span></span>(<span>) ‑> Tuple[pathlib.Path]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Interactively ask for run paths</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_run_paths_interactively() -&gt; Tuple[Path]:
+    &#34;&#34;&#34;Interactively ask for run paths&#34;&#34;&#34;
+    runs = []
+    while True:
+        r = input(&#39;Run file/folder to load (end with void line):&#39;).strip()
+        if r == &#39;&#39;:
+            break
+        path = Path(r)
+        if path.is_dir():
+            runs += list(path.glob(&#39;*.pkl.gz&#39;))
+        else:
+            runs.append(path.absolute())
+    if len(runs) == 0:
+        raise Exception(&#39;No run file specified&#39;)
+    return tuple(runs)</code></pre>
+</details>
+</dd>
+<dt id="convSearchPython.difference.get_run_paths"><code class="name flex">
+<span>def <span class="ident">get_run_paths</span></span>(<span>runs: Iterable[pathlib.Path]) ‑> Tuple[pathlib.Path]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Get the run paths from a collection of paths expanding the folders</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_run_paths(runs: Iterable[Path]) -&gt; Tuple[Path]:
+    &#34;&#34;&#34;Get the run paths from a collection of paths expanding the folders&#34;&#34;&#34;
+    run_paths = []
+    for p in runs:
+        if p.is_dir():
+            run_paths += list(p.glob(&#39;*.pkl.gz&#39;))
+        else:
+            run_paths.append(p.absolute())
+    return tuple(run_paths)</code></pre>
+</details>
+</dd>
+<dt id="convSearchPython.difference.get_names_runs"><code class="name flex">
+<span>def <span class="ident">get_names_runs</span></span>(<span>run_paths: Iterable[pathlib.Path]) ‑> Tuple[Set[str], Dict[str, pandas.core.frame.DataFrame]]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Load the runs and return methods names and runs datasets</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_names_runs(run_paths: Iterable[Path]) -&gt; Tuple[Set[str], Dict[str, pd.DataFrame]]:
+    &#34;&#34;&#34;Load the runs and return methods names and runs datasets&#34;&#34;&#34;
+    runs = {}
+    names = set()
+    for p in run_paths:
+        data: pd.DataFrame = pd.read_pickle(str(p))
+        data = data.sort_values([&#39;name&#39;, &#39;qid&#39;, &#39;rank&#39;], key=evaluation_key)
+        _names = pd.unique(data[&#39;name&#39;])
+        if len(_names) &gt; 1:
+            for n in _names:
+                if n in runs:
+                    raise Exception(f&#39;Duplicated name {n}&#39;)
+                runs[n] = data[data[&#39;name&#39;] == n]
+        elif len(_names) == 1:
+            if _names[0] in runs:
+                raise Exception(f&#39;Duplicated name {_names[0]}&#39;)
+            runs[_names[0]] = data
+        else:
+            raise Exception(f&#39;no column name in {p}&#39;)
+        names = names.union(_names)
+    return names, runs</code></pre>
+</details>
+</dd>
+<dt id="convSearchPython.difference.limit_queries"><code class="name flex">
+<span>def <span class="ident">limit_queries</span></span>(<span>data: pandas.core.frame.DataFrame, k: int) ‑> pandas.core.frame.DataFrame</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Limit the number of queries</p>
+<ul>
+<li>data: original dataframe</li>
+<li>k: limit at the top-k queries</li>
+<li>min_label: consider only row with label &gt;= of this value</li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def limit_queries(data: pd.DataFrame, k: int) -&gt; pd.DataFrame:
+    &#34;&#34;&#34;Limit the number of queries
+
+    - data: original dataframe
+    - k: limit at the top-k queries
+    - min_label: consider only row with label &gt;= of this value&#34;&#34;&#34;
+    parts = []
+    for _, group in data.groupby([&#39;qid&#39;, &#39;name&#39;]):
+        if len(group) &lt;= k:
+            parts.append(group)
+        else:
+            parts.append(group[:k])
+    return pd.concat(parts)</code></pre>
+</details>
+</dd>
+<dt id="convSearchPython.difference.get_unique_docs"><code class="name flex">
+<span>def <span class="ident">get_unique_docs</span></span>(<span>runs: Dict[str, pandas.core.frame.DataFrame]) ‑> Dict[str, set]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>For every dataframe in runs, generate a set of the docs absents inside other dataframes</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_unique_docs(runs: Dict[str, pd.DataFrame]) -&gt; Dict[str, set]:
+    &#34;&#34;&#34;For every dataframe in runs, generate a set of the docs absents inside other dataframes&#34;&#34;&#34;
+    docs_per_df = {}
+    for name, df in runs.items():
+        docs_per_df[name] = set(pd.unique(df[&#39;docno&#39;]))
+    unique_docs = {}
+    for name, docs in docs_per_df.items():
+        others = set()
+        for _name, _docs in docs_per_df.items():
+            if name != _name:
+                others = others.union(_docs)
+        unique_docs[name] = docs.difference(others)
+    return unique_docs</code></pre>
+</details>
+</dd>
+<dt id="convSearchPython.difference.add_rm3_comparison"><code class="name flex">
+<span>def <span class="ident">add_rm3_comparison</span></span>(<span>runs: Dict[str, pandas.core.frame.DataFrame], unique_docs: Dict[str, set])</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Update runs and unique_docs with rm3 comparison</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_rm3_comparison(runs: Dict[str, pd.DataFrame], unique_docs: Dict[str, set]):
+    &#34;&#34;&#34;Update runs and unique_docs with rm3 comparison&#34;&#34;&#34;
+    pairs = []
+    seen = set()
+    for name, data in runs.items():
+        base_name = name[:-4] if name.endswith(&#39; RM3&#39;) else name
+        if base_name not in seen:
+            pairs.append((base_name, f&#39;{base_name} RM3&#39;))
+            seen.add(base_name)
+    for base, rm3 in pairs:
+        uniq_rm3 = get_unique_docs({base: runs[base], rm3: runs[rm3]})
+        index = f&#39;{base} - RM3 comparison&#39;
+        runs[index] = pd.concat((runs[base], runs[rm3]))
+        unique_docs[index] = uniq_rm3[base].union(uniq_rm3[rm3])</code></pre>
+</details>
+</dd>
+<dt id="convSearchPython.difference.write_excel"><code class="name flex">
+<span>def <span class="ident">write_excel</span></span>(<span>runs: Dict[str, pandas.core.frame.DataFrame], unique_docs: Dict[str, set], output_path: pathlib.Path, info: pandas.core.series.Series)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Write excel with unique docs rows</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def write_excel(runs: Dict[str, pd.DataFrame], unique_docs: Dict[str, set], output_path: Path, info: pd.Series):
+    &#34;&#34;&#34;Write excel with unique docs rows&#34;&#34;&#34;
+    with pd.ExcelWriter(str(output_path), mode=&#39;w&#39;) as excel_file:
+        info.to_excel(excel_file, sheet_name=&#39;INFO&#39;, header=False)
+        excel_file.sheets[&#39;INFO&#39;].set_column(0, 0, 15)
+        excel_file.sheets[&#39;INFO&#39;].set_column(1, 1, 50)
+        for name, docs in unique_docs.items():
+            data = runs[name]
+            cols = [c for c in data.columns if c.startswith(&#39;query&#39;)]
+            cols = [&#39;name&#39;, &#39;qid&#39;, &#39;docno&#39;, &#39;rank&#39;, &#39;score&#39;, &#39;label&#39;, &#39;text&#39;] + cols
+            data[data[&#39;docno&#39;].isin(docs)][cols] \
+                .to_excel(excel_file, sheet_name=name, index=False)</code></pre>
+</details>
+</dd>
+<dt id="convSearchPython.difference.main"><code class="name flex">
+<span>def <span class="ident">main</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def main():
+    started = datetime.datetime.now()
+    arg_parser = argparse.ArgumentParser(description=__doc__)
+    arg_parser.add_argument(&#39;run&#39;, action=&#39;store&#39;, type=Path,
+                            help=&#39;run file or directory containing run files to load&#39;, nargs=&#39;*&#39;, default=[])
+    arg_parser.add_argument(&#39;-k, --top-k&#39;, action=&#39;store&#39;, type=int, dest=&#39;k&#39;, default=0,
+                            help=&#39;Limit search at top-k docs&#39;)
+    arg_parser.add_argument(&#39;-l, --min-label&#39;, action=&#39;store&#39;, type=int, dest=&#39;label&#39;, default=-1,
+                            help=&#39;Minimum label value to consider&#39;)
+    arg_parser.add_argument(&#39;-o, --output&#39;, action=&#39;store&#39;, type=Path, dest=&#39;out&#39;,
+                            help=&#39;path where to write the excel file (default to unique.xlsx in the parent &#39;
+                                 &#39;of the first run argument)&#39;, default=None)
+    arg_parser.add_argument(&#39;-r, --rm3-comparison&#39;, action=&#39;store_true&#39;, dest=&#39;rm3&#39;, default=False,
+                            help=&#39;include RM3 comparison&#39;)
+
+    opt = arg_parser.parse_args()
+    print(opt)
+
+    run_paths = get_run_paths(opt.run) if opt.run else get_run_paths_interactively()
+
+    names, runs = get_names_runs(run_paths)
+
+    print(names)
+    print(&#39;runs: {\n&#39; + &#39;\n\t&#39;.join(f&#39;len({n}): {len(d)}&#39; for n, d in runs.items()) + &#39;\n}&#39;)
+
+    if opt.label &gt;= 0:
+        for name, df in runs.items():
+            runs[name] = df[df[&#39;label&#39;] &gt;= opt.label]
+
+    if opt.k &gt; 0:
+        for name, df in runs.items():
+            runs[name] = limit_queries(df, opt.k)
+        print(&#39;runs: {\n&#39; + &#39;\n\t&#39;.join(f&#39;len({n}): {len(d)}&#39; for n, d in runs.items()) + &#39;\n}&#39;)
+
+    unique_docs = get_unique_docs(runs)
+
+    if opt.rm3:
+        add_rm3_comparison(runs, unique_docs)
+
+    output_path: Path = opt.out
+    if output_path is None:
+        output_path = opt.run[0].parent.absolute() if opt.run else run_paths[0].parent.absolute()
+        output_path = Path(output_path, &#39;unique.xlsx&#39;).absolute()
+    else:
+        output_path = output_path.absolute()
+        s_out = str(output_path)
+        if not (s_out.endswith(&#39;.xlsx&#39;) or s_out.endswith(&#39;.ods&#39;) or s_out.endswith(&#39;.xlsx&#39;)):
+            output_path = Path(str(output_path) + &#39;.xlsx&#39;)
+    print(f&#39;output_path: {output_path}&#39;)
+
+    # _info = {
+    #     &#39;created at&#39;: f&#39;{started} - {datetime.datetime.now()}&#39;,
+    #     &#39;top k&#39;: opt.k if opt.k &gt; 0 else &#39;no limit&#39;,
+    #     &#39;min label&#39;: opt.label if opt.label &gt;= 0 else &#39;no limit&#39;,
+    #     &#39;rm3 comparison&#39;: &#39;included&#39; if opt.rm3 else &#39;excluded&#39;,
+    #     &#39;run paths&#39;: [str(x) for x in run_paths],
+    # }
+    info = pd.Series(dtype=&#39;object&#39;)
+    info[&#39;created at&#39;] = f&#39;{started} - {datetime.datetime.now()}&#39;
+    info[&#39;top k&#39;] = opt.k if opt.k &gt; 0 else &#39;no limit&#39;
+    info[&#39;min label&#39;] = opt.label if opt.label &gt;= 0 else &#39;no limit&#39;
+    info[&#39;rm3 comparison&#39;] = &#39;included&#39; if opt.rm3 else &#39;excluded&#39;
+    write_excel(runs, unique_docs, output_path, info)</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="convSearchPython" href="index.html">convSearchPython</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="convSearchPython.difference.get_run_paths_interactively" href="#convSearchPython.difference.get_run_paths_interactively">get_run_paths_interactively</a></code></li>
+<li><code><a title="convSearchPython.difference.get_run_paths" href="#convSearchPython.difference.get_run_paths">get_run_paths</a></code></li>
+<li><code><a title="convSearchPython.difference.get_names_runs" href="#convSearchPython.difference.get_names_runs">get_names_runs</a></code></li>
+<li><code><a title="convSearchPython.difference.limit_queries" href="#convSearchPython.difference.limit_queries">limit_queries</a></code></li>
+<li><code><a title="convSearchPython.difference.get_unique_docs" href="#convSearchPython.difference.get_unique_docs">get_unique_docs</a></code></li>
+<li><code><a title="convSearchPython.difference.add_rm3_comparison" href="#convSearchPython.difference.add_rm3_comparison">add_rm3_comparison</a></code></li>
+<li><code><a title="convSearchPython.difference.write_excel" href="#convSearchPython.difference.write_excel">write_excel</a></code></li>
+<li><code><a title="convSearchPython.difference.main" href="#convSearchPython.difference.main">main</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

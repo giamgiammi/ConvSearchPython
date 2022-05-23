@@ -1,0 +1,2477 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>convSearchPython.pipelines API documentation</title>
+<meta name="description" content="Module for Pipelines that provides a conversational search method …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML" integrity="sha256-kZafAc6mZvK3W3v1pHOcUix30OHQN6pU/NO2oFkqZVw=" crossorigin></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>convSearchPython.pipelines</code></h1>
+</header>
+<section id="section-intro">
+<p>Module for Pipelines that provides a conversational search method</p>
+<p>UML Scheme of provided pipelines:
+<img alt="UML scheme" src="../imgs/pipelines.svg"></p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+Module for Pipelines that provides a conversational search method
+
+UML Scheme of provided pipelines:
+![UML scheme](../imgs/pipelines.svg)
+&#34;&#34;&#34;
+import logging
+import math
+import random
+import string
+from abc import abstractmethod, ABC
+from enum import Enum, auto
+from multiprocessing.pool import Pool
+from typing import Optional, NamedTuple, Any, Dict, Callable, Iterable, List
+
+import pandas as pd
+from numpy import array_split
+
+from convSearchPython.basics import conf, pyterrier as pt
+
+__pdoc__ = {
+    &#39;Pipeline.__call__&#39;: True,
+    &#39;AbstractParallelPipeline._parallel_run&#39;: True,
+    &#39;AbstractParallelPipeline._conv_parallel_run&#39;: True,
+    &#39;Step.__call__&#39;: True,
+}
+
+from convSearchPython.dataset import Conversations
+from convSearchPython.utils.data_utils import queries_conversation_splitter
+
+_INDEX_CACHE = {}
+
+
+class IndexConf(NamedTuple):
+    &#34;&#34;&#34;
+    Utility class for loading indexes configured in config.ini
+
+    Usage:
+    ```
+    index_conf = Index.load_index(&#39;index_name&#39;)
+    index = index_conf.index  # this is a pyterrier index
+    props = index_conf.properties  # this is a dict of index properties
+
+    br = pt.BatchRetrieve(index,
+                          wmodel=&#34;DirichletLM&#34;,
+                          properties=props)
+    ```
+    &#34;&#34;&#34;
+    #: pyterrier index
+    index: Any
+    #: dict of properties for the index (or None if default apply)
+    properties: Optional[Dict[str, Any]]
+
+    @staticmethod
+    def load_index(name: str) -&gt; &#39;IndexConf&#39;:
+        &#34;&#34;&#34;
+        Load a pyterrier index (and relative properties) from config.
+
+        Raises ValueError if no index is found with provided name.
+
+        Args:
+            name: the name of the wanted index inside conf.ini
+
+        Returns:
+            An IndexConf objects
+        &#34;&#34;&#34;
+        if name in _INDEX_CACHE:
+            return _INDEX_CACHE[name]
+        logging.getLogger(&#39;IndexConf&#39;).info(&#39;loading index &#34;%s&#34;&#39;, name)
+        prefix = f&#39;{name}.&#39;
+        indexes = conf[&#39;INDEXES&#39;]
+        path = indexes.get(prefix + &#39;path&#39;)
+        if path is None:
+            raise ValueError(f&#39;index &#34;{name}&#34; not found&#39;)
+        properties = {}
+        for key in indexes.keys():
+            if key.startswith(prefix) and (not key == f&#39;{name}.path&#39;):
+                prop_key = key[len(prefix):]
+                properties[prop_key] = indexes[key]
+        if len(properties) == 0:
+            properties = None
+        index = IndexConf(pt.IndexFactory.of(path), properties)
+        _INDEX_CACHE[name] = index
+        return index
+
+    @staticmethod
+    def add_index(index, properties: Dict[str, Any] = None, name: str = None) -&gt; str:
+        &#34;&#34;&#34;
+        Add the provided index to cache
+        Raises:
+            KeyError: if name is provided and an index with that name already exists
+            RuntimeError: if name wasn&#39;t provided and the method didn&#39;t find a suitable name
+            in 100 iterations (safeguard against infinite loop)
+        Args:
+            index: pyterrier index
+            properties: optional dict of properties
+            name: optional name for the index
+
+        Returns:
+            the name of the added index
+        &#34;&#34;&#34;
+        if name is None:
+            characters = string.ascii_letters + string.digits
+            for i in range(100):
+                rdn_name = &#39;&#39;.join(random.choices(characters, k=10))
+                if (rdn_name not in _INDEX_CACHE) and (rdn_name not in conf[&#39;INDEXES&#39;]):
+                    name = rdn_name
+                    break
+            if name is None:
+                raise RuntimeError(&#39;cannot find suitable name in 100 iteration (safeguard against infinite loop)&#39;)
+        else:
+            if (name in _INDEX_CACHE) or (name in conf[&#39;INDEXES&#39;]):
+                raise KeyError(f&#39;an in dex named &#34;{name}&#34; already exists&#39;)
+
+        _INDEX_CACHE[name] = IndexConf(index, properties)
+        return name
+
+    @staticmethod
+    def remove_index(name: str) -&gt; bool:
+        &#34;&#34;&#34;
+        Remove an index from cache.
+
+        If the index wasn&#39;t in cache False is returned, else True is returned.
+
+        Args:
+            name: name of the index to remove
+
+        Returns:
+            True if the index was in cache, False otherwise
+        &#34;&#34;&#34;
+        if name in _INDEX_CACHE:
+            _INDEX_CACHE.pop(name)
+            return True
+        return False
+
+
+class Pipeline(ABC):
+    &#34;&#34;&#34;
+    Interface for a Pipeline.
+
+    A pipeline represent a flow of execution comprised of
+    various steps, that takes in input a DataFrame of queries
+    and give in output a DataFrame of results.
+
+    Pipelines will be instantiated with a dictionary of parameters comprised of:
+
+    - parameters specified in the search configuration file
+    - common parameters that are **always** passed and that a pipeline
+    can decide to use, if it needs.
+
+    For this reason a pipeline is **required** to have a `**kwargs` arguments
+    inside its signature so unused arguments won&#39;t cause an error.
+    For more information on reserved arguments names or pipeline instantiation in general,
+    look at `convSearchPython.search`.
+
+    ## Implementations:
+    Every implementation that subclass this object needs to:
+
+    - implement a `name` field (generally using a property) that return an easy-to-parse
+    name that represent the entire pipeline
+    - implement the `run_on` method, that takes the queries (and optionally a parallel pool),
+    process them with the pipeline and return the results conforming with pyterrier data model
+    - &lt;ins&gt;Not&lt;/ins&gt; override the `__call__` method, that execute run_on internally, by default.
+
+    ## Pipeline-like objects:
+    The default way to execute a pipeline is using it as a callable object.
+    That means that every object that conform to the constructor and the `__call__` method
+    of this object can effectively be used as a pipeline.
+    &#34;&#34;&#34;
+
+    def __init__(self, **kwargs):
+        &#34;&#34;&#34;
+        Args:
+            **kwargs: extra unused parameters
+        &#34;&#34;&#34;
+
+    @property
+    @abstractmethod
+    def name(self):
+        &#34;&#34;&#34;
+        An easy-to-parse name for the pipeline that represents
+        the various steps and their configuration
+
+        Generally this should be implemented using a property
+        &#34;&#34;&#34;
+        pass
+
+    @abstractmethod
+    def run_on(self, queries: pd.DataFrame, parallel_pool: Optional[Pool] = None):
+        &#34;&#34;&#34;
+        Run the pipeline on a DataFrame of query with, optionally, a parallel pool.
+
+        It is responsibility of the implementing class to decide how to use the parallel pool,
+        and check if the needed step are parallelizable (and how).
+
+        Args:
+            queries: queries DataFrame
+            parallel_pool: multiprocessing Pool
+
+        Returns:
+            A DataFrame of results conforming to pyterrier data model
+        &#34;&#34;&#34;
+        pass
+
+    def __call__(self, queries: pd.DataFrame, parallel_pool: Optional[Pool] = None) -&gt; pd.DataFrame:
+        &#34;&#34;&#34;Same as `run_on`&#34;&#34;&#34;
+        return self.run_on(queries, parallel_pool)
+
+
+class AbstractParallelPipeline(Pipeline, ABC):
+    &#34;&#34;&#34;
+    Abstract class to help to implement a parallel pipeline.
+
+    It provides two private methods, `_parallel_run` and `conv_parallel_run`
+    that can be used by subclasses to parallelize a step of the pipeline.
+    &#34;&#34;&#34;
+
+    @staticmethod
+    def _parallel_run(step: Callable[[pd.DataFrame], pd.DataFrame],
+                      pool: Pool,
+                      data: pd.DataFrame,
+                      split_n: int = None) -&gt; pd.DataFrame:
+        &#34;&#34;&#34;
+        Run a pipeline step on a parallel pool.
+
+        Note: this method do not consider the existence of conversations
+        when dividing the data.
+        Args:
+            step: the callable step, must accept a DataFrame and return a DataFrame
+            pool: the multiprocessing parallel pool
+            data: the data (queries or results) to split
+            split_n: (optional) if provided, number of (almost) equals parts to divide data in
+
+        Returns:
+            The resulting DataFrame
+        &#34;&#34;&#34;
+        if split_n is None:
+            # try to find the level of parallelism
+            n = getattr(pool, &#39;_processes&#39;, None)
+            if (n is None) or (not isinstance(n, int)) or (n &lt;= 0):
+                split_n = math.floor(len(data) / 20)
+            else:
+                chunk_size = len(data) / (n * 2)
+                if chunk_size &lt; 10:
+                    chunk_size = 10
+                elif chunk_size &gt; 50:
+                    chunk_size = 50
+                split_n = math.floor(len(data) / chunk_size)
+
+        parts_iterable = pool.imap(step, array_split(data, split_n))
+        return pd.concat(parts_iterable)
+
+    @staticmethod
+    def _conv_parallel_run(step: Callable[[pd.DataFrame], pd.DataFrame],
+                           pool: Pool,
+                           data: pd.DataFrame,
+                           conversations: Conversations) -&gt; pd.DataFrame:
+        &#34;&#34;&#34;
+        Run a pipeline step on a parallel pool dividing data by conversation.
+        Args:
+            step: the callable step, must accept a DataFrame and return a DataFrame
+            pool: the multiprocessing parallel pool
+            data: the data (queries or results) to split
+            conversations: conversations structure
+
+        Returns:
+            The resulting DataFrame
+        &#34;&#34;&#34;
+        conv_iterator = queries_conversation_splitter(data, conversations)
+        parts_iterator = pool.imap(step, conv_iterator)
+        return pd.concat(parts_iterator)
+
+
+class StepType(Enum):
+    &#34;&#34;&#34;
+    Enum that define the type of a Step instance.
+    In particular, it provides insight on the parallelizability
+    of a Step.
+    &#34;&#34;&#34;
+
+    #: Step that can be fully parallelized regardless of conversations
+    FULLY_PARALLEL = auto()
+
+    #: Step that must be executed sequentially on every conversation
+    #: but can be parallelized between different ones
+    CONVERSATIONALLY_PARALLEL = auto()
+
+    #: Step that must be executed sequentially on the main process
+    SEQUENTIAL = auto()
+
+
+class Step(ABC):
+    &#34;&#34;&#34;
+    Class that represent a generic pipeline step
+
+    Implementation may want to override:
+
+    - `name` to provide a representative name for the step and its parameters
+    - `cleanup()` to clean cached objects after the execution
+    &#34;&#34;&#34;
+
+    def __init__(self, **kwargs):
+        &#34;&#34;&#34;
+        Args:
+            **kwargs: extra unused arguments
+        &#34;&#34;&#34;
+        pass
+
+    @property
+    def name(self) -&gt; str:
+        &#34;&#34;&#34;
+        Representative name of the Step
+        &#34;&#34;&#34;
+        return self.__class__.__name__
+
+    @property
+    @abstractmethod
+    def type(self) -&gt; StepType:
+        &#34;&#34;&#34;
+        Type of the Step
+        &#34;&#34;&#34;
+        pass
+
+    def cleanup(self):
+        &#34;&#34;&#34;
+        Clean eventual cached objects after the step execution.
+
+        By default, is a no-op but can be overridden by implementations.
+        &#34;&#34;&#34;
+        pass
+
+    @abstractmethod
+    def __call__(self, queries_or_results: pd.DataFrame) -&gt; pd.DataFrame:
+        &#34;&#34;&#34;
+        Apply this step on a DataFrame
+        Args:
+            queries_or_results: input DataFrame on witch apply this step
+
+        Returns:
+            The resulting DataFrame
+        &#34;&#34;&#34;
+        pass
+
+
+class Rewriter(Step, ABC):
+    &#34;&#34;&#34;
+    A Rewriter is a special case of pipeline step that rewrite
+    the query formulations passed in input.
+
+    Subclasses must implement the `rewrite` method.
+    This class override the `__call__` method, so it uses `rewrite` internally.
+    &#34;&#34;&#34;
+
+    @abstractmethod
+    def rewrite(self, queries: pd.DataFrame) -&gt; pd.DataFrame:
+        &#34;&#34;&#34;
+        Rewrite input queries.
+
+        The result must conform to the pyterrier data model.
+        So the old &#34;query&#34; column must be renamed &#34;query_n&#34; where
+        n is the number of the formulation (starting with 0).
+
+        Example: if the input already contains a &#34;query_0&#34; column,
+        the &#34;query&#34; column must be renamed &#34;query_1&#34; and a new
+        &#34;query&#34; column must be added with rewritten queries.
+
+        Args:
+            queries: input queries DataFrame
+
+        Returns:
+            DataFrame with rewritten queries
+        &#34;&#34;&#34;
+        pass
+
+    def __call__(self, queries: pd.DataFrame) -&gt; pd.DataFrame:
+        return self.rewrite(queries)
+
+
+class Reranker(Step, ABC):
+    &#34;&#34;&#34;
+    A Rewriter is a special case of pipeline step that rerank
+    the documents and produce a newly ordered results DataFrame.
+
+    Subclasses must implement the `rerank` method.
+    This class override the `__call__` method, so it uses `rerank` internally.
+    &#34;&#34;&#34;
+
+    @abstractmethod
+    def rerank(self, results: pd.DataFrame) -&gt; pd.DataFrame:
+        &#34;&#34;&#34;
+        Rewrite input queries.
+
+        The result must conform to the pyterrier data model.
+        So the content of the &#34;score&#34; column must be updated.
+
+        It is responsibility of the rewriter to check if multiple
+        conversations were passed as inputs and act according, and
+        to sort the resulting DataFrame before returning it.
+
+        Args:
+            results: input results DataFrame
+
+        Returns:
+            DataFrame reordered and with updated scores
+        &#34;&#34;&#34;
+        pass
+
+    def __call__(self, results: pd.DataFrame) -&gt; pd.DataFrame:
+        return self.rerank(results)
+
+
+class Model(Step):
+    &#34;&#34;&#34;
+    Wrapper for BatchRetrieve
+
+    Note: mu control, when wmodel is DirichletLM, is renamed to c for convenience
+    &#34;&#34;&#34;
+
+    def __init__(self, wmodel: str, controls: Dict[str, Any], index: str, metadata: List[str], **kwargs):
+        &#34;&#34;&#34;
+        Args:
+            wmodel: model name (ex. BM25)
+            controls: model controls
+            index: index name
+            metadata: metadata list
+            **kwargs: extra unused arguments
+        &#34;&#34;&#34;
+        super().__init__(**kwargs)
+        self._wmodel = wmodel
+        if wmodel == &#39;DirichletLM&#39; and &#39;mu&#39; in controls:
+            controls[&#39;c&#39;] = controls.pop(&#39;mu&#39;)
+        self._num_results = 1000
+        if &#39;num_results&#39; in controls:
+            self._num_results = controls.pop(&#39;num_results&#39;)
+        self._controls = controls
+        self._index = index
+        self._metadata = metadata
+
+        self._br = None
+
+    @property
+    def wmodel(self):
+        return self._wmodel
+
+    @property
+    def controls(self):
+        return self._controls.copy()
+
+    @property
+    def name(self) -&gt; str:
+        parts = [self.wmodel]
+        for key, value in self._controls.items():
+            if key == &#39;num_results&#39;:
+                key = &#39;n&#39;
+            parts.append(f&#39;{key}={value}&#39;)
+        return &#39;-&#39;.join(parts)
+
+    @property
+    def type(self) -&gt; StepType:
+        return StepType.FULLY_PARALLEL
+
+    def cleanup(self):
+        self._br = None
+
+    def _batch_retrieve(self):
+        index_conf = IndexConf.load_index(self._index)
+        return pt.BatchRetrieve(index_conf.index,
+                                wmodel=&#34;DirichletLM&#34;,
+                                controls=self._controls,
+                                properties=index_conf.properties,
+                                metadata=self._metadata,
+                                num_results=self._num_results)
+
+    def __call__(self, queries: pd.DataFrame) -&gt; pd.DataFrame:
+        if self._br is None:
+            self._br = self._batch_retrieve()
+        return self._br(queries)
+
+    def __getstate__(self):
+        return self._wmodel, self._controls, self._index, self._metadata
+
+    def __setstate__(self, state):
+        self._wmodel, self._controls, self._index, self._metadata = state
+        self._br = None
+
+
+class RM3(Step):
+    &#34;&#34;&#34;
+    Wrapper for RM3
+    &#34;&#34;&#34;
+
+    def __init__(self, index: str, fb_terms: int = 20, fb_docs: int = 20, fb_lambda: float = 0.5, **kwargs):
+        &#34;&#34;&#34;
+        Args:
+            index: index name
+            fb_terms: number of terms
+            fb_docs: number of docs
+            fb_lambda: rm3 parameter
+            **kwargs: extra unused arguments
+        &#34;&#34;&#34;
+        super().__init__(**kwargs)
+        self._index = index
+        self._fb_terms = fb_terms
+        self._fb_docs = fb_docs
+        self._fb_lambda = fb_lambda
+
+        self._rm3 = None
+
+    @property
+    def fb_terms(self):
+        return self._fb_terms
+
+    @property
+    def fb_docs(self):
+        return self._fb_docs
+
+    @property
+    def fb_lambda(self):
+        return self._fb_lambda
+
+    @property
+    def name(self):
+        return f&#39;rm3-t{self.fb_terms}-d{self.fb_docs}-l{self.fb_lambda}&#39;
+
+    @property
+    def type(self) -&gt; StepType:
+        return StepType.FULLY_PARALLEL
+
+    def cleanup(self):
+        self._rm3 = None
+
+    def _get_rm3(self):
+        index_conf = IndexConf.load_index(self._index)
+        return pt.rewrite.RM3(index_conf.index,
+                              fb_terms=self._fb_terms,
+                              fb_docs=self._fb_docs,
+                              fb_lambda=self._fb_lambda)
+
+    def __call__(self, results: pd.DataFrame) -&gt; pd.DataFrame:
+        if self._rm3 is None:
+            self._rm3 = self._get_rm3()
+        return self._rm3(results)
+
+    def __getstate__(self):
+        return self._fb_terms, self._fb_docs, self._fb_lambda, self._index
+
+    def __setstate__(self, state):
+        self._fb_terms, self._fb_docs, self._fb_lambda, self._index = state
+        self._rm3 = None
+
+
+class ChainPipeline(AbstractParallelPipeline):
+    &#34;&#34;&#34;
+    Pipeline that combine already constructed steps.
+
+    While the main use is to combine objects that subclass `Step`,
+    this class will work with any Step-like object that act as
+    ```Callable[[DataFrame], DataFrame]```.
+    &#34;&#34;&#34;
+
+    def __init__(self, steps: Iterable[Step], name: str,
+                 conversations: Conversations, **kwargs):
+        &#34;&#34;&#34;
+        Args:
+            steps: iterable of Step or Step-like objects
+            name: easy-to-parse pipeline name
+            conversations: (reserved argument) conversations structure
+            **kwargs: extra unused arguments
+        &#34;&#34;&#34;
+        super().__init__(**kwargs)
+        self._name = name
+        self._conversations = conversations
+        self._steps = list(steps)
+        for s in steps:
+            if not callable(s):
+                raise ValueError(f&#39;step {s} is not callable&#39;)
+
+    @property
+    def steps(self) -&gt; List[Step]:
+        &#34;&#34;&#34;List of Step objects contained in this pipeline&#34;&#34;&#34;
+        return self._steps.copy()
+
+    @property
+    def name(self) -&gt; str:
+        &#34;&#34;&#34;Easy-to-parse pipeline name&#34;&#34;&#34;
+        return self._name
+
+    def run_on(self, queries: pd.DataFrame, parallel_pool: Optional[Pool] = None) -&gt; pd.DataFrame:
+        &#34;&#34;&#34;
+        Run the pipeline.
+
+        If a parallel pool is provided, then the steps are executed according to the following rules:
+
+        - If a step is of type `StepType.SEQUENTIAL`, then it&#39;s executed sequentially
+        outside the parallel pool
+        - If a step is of type `StepType.CONVERSATIONALLY_PARALLEL`, then it&#39;s
+        executed inside the parallel pool, dividing the input queries by conversation
+        - If neither of that applies, the step is executed inside the parallel pool
+        without regarding of the conversations
+
+        Args:
+            queries: input queries DataFrame
+            parallel_pool: optional parallel pool
+
+        Returns:
+            The resulting DataFrame
+        &#34;&#34;&#34;
+        data = queries
+
+        if parallel_pool is None:
+            for step in self._steps:
+                data = step(data)
+        else:
+            for step in self._steps:
+                type = getattr(step, &#39;type&#39;, StepType.FULLY_PARALLEL)
+                if type == StepType.SEQUENTIAL:
+                    data = step(data)
+                elif type == StepType.CONVERSATIONALLY_PARALLEL:
+                    data = self._conv_parallel_run(step, parallel_pool, data, self._conversations)
+                else:
+                    data = self._parallel_run(step, parallel_pool, data)
+
+                cleanup = getattr(step, &#39;cleanup&#39;, None)
+                if callable(cleanup):
+                    cleanup()
+
+        return data
+
+
+if __name__ == &#39;__main__&#39;:
+    index_conf = IndexConf.load_index(&#39;custom&#39;)
+    print(index_conf)</code></pre>
+</details>
+</section>
+<section>
+<h2 class="section-title" id="header-submodules">Sub-modules</h2>
+<dl>
+<dt><code class="name"><a title="convSearchPython.pipelines.baselines" href="baselines.html">convSearchPython.pipelines.baselines</a></code></dt>
+<dd>
+<div class="desc"><p>Collection of baselines runs</p></div>
+</dd>
+<dt><code class="name"><a title="convSearchPython.pipelines.bottom_up" href="bottom_up.html">convSearchPython.pipelines.bottom_up</a></code></dt>
+<dd>
+<div class="desc"><p>This module contains a collection of pipelines that add
+a bottom up reranking filter at the end of the searching …</p></div>
+</dd>
+<dt><code class="name"><a title="convSearchPython.pipelines.dbpedia" href="dbpedia.html">convSearchPython.pipelines.dbpedia</a></code></dt>
+<dd>
+<div class="desc"><p>This module contains a pipeline based on <a href="https://trec.nist.gov/pubs/trec28/papers/mpii.C.pdf">Incoporating Query Context into a BERT Re-ranker</a></p></div>
+</dd>
+<dt><code class="name"><a title="convSearchPython.pipelines.factory" href="factory/index.html">convSearchPython.pipelines.factory</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt><code class="name"><a title="convSearchPython.pipelines.historical" href="historical.html">convSearchPython.pipelines.historical</a></code></dt>
+<dd>
+<div class="desc"><p>This module contains a collection of pipelines that make use of two algorithms (HQE and HAE) described in
+[Query and Answer Expansion from …</p></div>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="convSearchPython.pipelines.IndexConf"><code class="flex name class">
+<span>class <span class="ident">IndexConf</span></span>
+<span>(</span><span>index: Any, properties: Optional[Dict[str, Any]])</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Utility class for loading indexes configured in config.ini</p>
+<p>Usage:</p>
+<pre><code>index_conf = Index.load_index('index_name')
+index = index_conf.index  # this is a pyterrier index
+props = index_conf.properties  # this is a dict of index properties
+
+br = pt.BatchRetrieve(index,
+                      wmodel=&quot;DirichletLM&quot;,
+                      properties=props)
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class IndexConf(NamedTuple):
+    &#34;&#34;&#34;
+    Utility class for loading indexes configured in config.ini
+
+    Usage:
+    ```
+    index_conf = Index.load_index(&#39;index_name&#39;)
+    index = index_conf.index  # this is a pyterrier index
+    props = index_conf.properties  # this is a dict of index properties
+
+    br = pt.BatchRetrieve(index,
+                          wmodel=&#34;DirichletLM&#34;,
+                          properties=props)
+    ```
+    &#34;&#34;&#34;
+    #: pyterrier index
+    index: Any
+    #: dict of properties for the index (or None if default apply)
+    properties: Optional[Dict[str, Any]]
+
+    @staticmethod
+    def load_index(name: str) -&gt; &#39;IndexConf&#39;:
+        &#34;&#34;&#34;
+        Load a pyterrier index (and relative properties) from config.
+
+        Raises ValueError if no index is found with provided name.
+
+        Args:
+            name: the name of the wanted index inside conf.ini
+
+        Returns:
+            An IndexConf objects
+        &#34;&#34;&#34;
+        if name in _INDEX_CACHE:
+            return _INDEX_CACHE[name]
+        logging.getLogger(&#39;IndexConf&#39;).info(&#39;loading index &#34;%s&#34;&#39;, name)
+        prefix = f&#39;{name}.&#39;
+        indexes = conf[&#39;INDEXES&#39;]
+        path = indexes.get(prefix + &#39;path&#39;)
+        if path is None:
+            raise ValueError(f&#39;index &#34;{name}&#34; not found&#39;)
+        properties = {}
+        for key in indexes.keys():
+            if key.startswith(prefix) and (not key == f&#39;{name}.path&#39;):
+                prop_key = key[len(prefix):]
+                properties[prop_key] = indexes[key]
+        if len(properties) == 0:
+            properties = None
+        index = IndexConf(pt.IndexFactory.of(path), properties)
+        _INDEX_CACHE[name] = index
+        return index
+
+    @staticmethod
+    def add_index(index, properties: Dict[str, Any] = None, name: str = None) -&gt; str:
+        &#34;&#34;&#34;
+        Add the provided index to cache
+        Raises:
+            KeyError: if name is provided and an index with that name already exists
+            RuntimeError: if name wasn&#39;t provided and the method didn&#39;t find a suitable name
+            in 100 iterations (safeguard against infinite loop)
+        Args:
+            index: pyterrier index
+            properties: optional dict of properties
+            name: optional name for the index
+
+        Returns:
+            the name of the added index
+        &#34;&#34;&#34;
+        if name is None:
+            characters = string.ascii_letters + string.digits
+            for i in range(100):
+                rdn_name = &#39;&#39;.join(random.choices(characters, k=10))
+                if (rdn_name not in _INDEX_CACHE) and (rdn_name not in conf[&#39;INDEXES&#39;]):
+                    name = rdn_name
+                    break
+            if name is None:
+                raise RuntimeError(&#39;cannot find suitable name in 100 iteration (safeguard against infinite loop)&#39;)
+        else:
+            if (name in _INDEX_CACHE) or (name in conf[&#39;INDEXES&#39;]):
+                raise KeyError(f&#39;an in dex named &#34;{name}&#34; already exists&#39;)
+
+        _INDEX_CACHE[name] = IndexConf(index, properties)
+        return name
+
+    @staticmethod
+    def remove_index(name: str) -&gt; bool:
+        &#34;&#34;&#34;
+        Remove an index from cache.
+
+        If the index wasn&#39;t in cache False is returned, else True is returned.
+
+        Args:
+            name: name of the index to remove
+
+        Returns:
+            True if the index was in cache, False otherwise
+        &#34;&#34;&#34;
+        if name in _INDEX_CACHE:
+            _INDEX_CACHE.pop(name)
+            return True
+        return False</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.tuple</li>
+</ul>
+<h3>Static methods</h3>
+<dl>
+<dt id="convSearchPython.pipelines.IndexConf.load_index"><code class="name flex">
+<span>def <span class="ident">load_index</span></span>(<span>name: str) ‑> <a title="convSearchPython.pipelines.IndexConf" href="#convSearchPython.pipelines.IndexConf">IndexConf</a></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Load a pyterrier index (and relative properties) from config.</p>
+<p>Raises ValueError if no index is found with provided name.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong></dt>
+<dd>the name of the wanted index inside conf.ini</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>An IndexConf objects</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def load_index(name: str) -&gt; &#39;IndexConf&#39;:
+    &#34;&#34;&#34;
+    Load a pyterrier index (and relative properties) from config.
+
+    Raises ValueError if no index is found with provided name.
+
+    Args:
+        name: the name of the wanted index inside conf.ini
+
+    Returns:
+        An IndexConf objects
+    &#34;&#34;&#34;
+    if name in _INDEX_CACHE:
+        return _INDEX_CACHE[name]
+    logging.getLogger(&#39;IndexConf&#39;).info(&#39;loading index &#34;%s&#34;&#39;, name)
+    prefix = f&#39;{name}.&#39;
+    indexes = conf[&#39;INDEXES&#39;]
+    path = indexes.get(prefix + &#39;path&#39;)
+    if path is None:
+        raise ValueError(f&#39;index &#34;{name}&#34; not found&#39;)
+    properties = {}
+    for key in indexes.keys():
+        if key.startswith(prefix) and (not key == f&#39;{name}.path&#39;):
+            prop_key = key[len(prefix):]
+            properties[prop_key] = indexes[key]
+    if len(properties) == 0:
+        properties = None
+    index = IndexConf(pt.IndexFactory.of(path), properties)
+    _INDEX_CACHE[name] = index
+    return index</code></pre>
+</details>
+</dd>
+<dt id="convSearchPython.pipelines.IndexConf.add_index"><code class="name flex">
+<span>def <span class="ident">add_index</span></span>(<span>index, properties: Dict[str, Any] = None, name: str = None) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Add the provided index to cache</p>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>KeyError</code></dt>
+<dd>if name is provided and an index with that name already exists</dd>
+<dt><code>RuntimeError</code></dt>
+<dd>if name wasn't provided and the method didn't find a suitable name</dd>
+</dl>
+<p>in 100 iterations (safeguard against infinite loop)</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>index</code></strong></dt>
+<dd>pyterrier index</dd>
+<dt><strong><code>properties</code></strong></dt>
+<dd>optional dict of properties</dd>
+<dt><strong><code>name</code></strong></dt>
+<dd>optional name for the index</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>the name of the added index</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def add_index(index, properties: Dict[str, Any] = None, name: str = None) -&gt; str:
+    &#34;&#34;&#34;
+    Add the provided index to cache
+    Raises:
+        KeyError: if name is provided and an index with that name already exists
+        RuntimeError: if name wasn&#39;t provided and the method didn&#39;t find a suitable name
+        in 100 iterations (safeguard against infinite loop)
+    Args:
+        index: pyterrier index
+        properties: optional dict of properties
+        name: optional name for the index
+
+    Returns:
+        the name of the added index
+    &#34;&#34;&#34;
+    if name is None:
+        characters = string.ascii_letters + string.digits
+        for i in range(100):
+            rdn_name = &#39;&#39;.join(random.choices(characters, k=10))
+            if (rdn_name not in _INDEX_CACHE) and (rdn_name not in conf[&#39;INDEXES&#39;]):
+                name = rdn_name
+                break
+        if name is None:
+            raise RuntimeError(&#39;cannot find suitable name in 100 iteration (safeguard against infinite loop)&#39;)
+    else:
+        if (name in _INDEX_CACHE) or (name in conf[&#39;INDEXES&#39;]):
+            raise KeyError(f&#39;an in dex named &#34;{name}&#34; already exists&#39;)
+
+    _INDEX_CACHE[name] = IndexConf(index, properties)
+    return name</code></pre>
+</details>
+</dd>
+<dt id="convSearchPython.pipelines.IndexConf.remove_index"><code class="name flex">
+<span>def <span class="ident">remove_index</span></span>(<span>name: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Remove an index from cache.</p>
+<p>If the index wasn't in cache False is returned, else True is returned.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong></dt>
+<dd>name of the index to remove</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>True if the index was in cache, False otherwise</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def remove_index(name: str) -&gt; bool:
+    &#34;&#34;&#34;
+    Remove an index from cache.
+
+    If the index wasn&#39;t in cache False is returned, else True is returned.
+
+    Args:
+        name: name of the index to remove
+
+    Returns:
+        True if the index was in cache, False otherwise
+    &#34;&#34;&#34;
+    if name in _INDEX_CACHE:
+        _INDEX_CACHE.pop(name)
+        return True
+    return False</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="convSearchPython.pipelines.IndexConf.index"><code class="name">var <span class="ident">index</span> : Any</code></dt>
+<dd>
+<div class="desc"><p>pyterrier index</p></div>
+</dd>
+<dt id="convSearchPython.pipelines.IndexConf.properties"><code class="name">var <span class="ident">properties</span> : Optional[Dict[str, Any]]</code></dt>
+<dd>
+<div class="desc"><p>dict of properties for the index (or None if default apply)</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="convSearchPython.pipelines.Pipeline"><code class="flex name class">
+<span>class <span class="ident">Pipeline</span></span>
+<span>(</span><span>**kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Interface for a Pipeline.</p>
+<p>A pipeline represent a flow of execution comprised of
+various steps, that takes in input a DataFrame of queries
+and give in output a DataFrame of results.</p>
+<p>Pipelines will be instantiated with a dictionary of parameters comprised of:</p>
+<ul>
+<li>parameters specified in the search configuration file</li>
+<li>common parameters that are <strong>always</strong> passed and that a pipeline
+can decide to use, if it needs.</li>
+</ul>
+<p>For this reason a pipeline is <strong>required</strong> to have a <code>**kwargs</code> arguments
+inside its signature so unused arguments won't cause an error.
+For more information on reserved arguments names or pipeline instantiation in general,
+look at <code><a title="convSearchPython.search" href="../search.html">convSearchPython.search</a></code>.</p>
+<h2 id="implementations">Implementations:</h2>
+<p>Every implementation that subclass this object needs to:</p>
+<ul>
+<li>implement a <code>name</code> field (generally using a property) that return an easy-to-parse
+name that represent the entire pipeline</li>
+<li>implement the <code>run_on</code> method, that takes the queries (and optionally a parallel pool),
+process them with the pipeline and return the results conforming with pyterrier data model</li>
+<li><ins>Not</ins> override the <code>__call__</code> method, that execute run_on internally, by default.</li>
+</ul>
+<h2 id="pipeline-like-objects">Pipeline-like objects:</h2>
+<p>The default way to execute a pipeline is using it as a callable object.
+That means that every object that conform to the constructor and the <code>__call__</code> method
+of this object can effectively be used as a pipeline.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>**kwargs</code></strong></dt>
+<dd>extra unused parameters</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Pipeline(ABC):
+    &#34;&#34;&#34;
+    Interface for a Pipeline.
+
+    A pipeline represent a flow of execution comprised of
+    various steps, that takes in input a DataFrame of queries
+    and give in output a DataFrame of results.
+
+    Pipelines will be instantiated with a dictionary of parameters comprised of:
+
+    - parameters specified in the search configuration file
+    - common parameters that are **always** passed and that a pipeline
+    can decide to use, if it needs.
+
+    For this reason a pipeline is **required** to have a `**kwargs` arguments
+    inside its signature so unused arguments won&#39;t cause an error.
+    For more information on reserved arguments names or pipeline instantiation in general,
+    look at `convSearchPython.search`.
+
+    ## Implementations:
+    Every implementation that subclass this object needs to:
+
+    - implement a `name` field (generally using a property) that return an easy-to-parse
+    name that represent the entire pipeline
+    - implement the `run_on` method, that takes the queries (and optionally a parallel pool),
+    process them with the pipeline and return the results conforming with pyterrier data model
+    - &lt;ins&gt;Not&lt;/ins&gt; override the `__call__` method, that execute run_on internally, by default.
+
+    ## Pipeline-like objects:
+    The default way to execute a pipeline is using it as a callable object.
+    That means that every object that conform to the constructor and the `__call__` method
+    of this object can effectively be used as a pipeline.
+    &#34;&#34;&#34;
+
+    def __init__(self, **kwargs):
+        &#34;&#34;&#34;
+        Args:
+            **kwargs: extra unused parameters
+        &#34;&#34;&#34;
+
+    @property
+    @abstractmethod
+    def name(self):
+        &#34;&#34;&#34;
+        An easy-to-parse name for the pipeline that represents
+        the various steps and their configuration
+
+        Generally this should be implemented using a property
+        &#34;&#34;&#34;
+        pass
+
+    @abstractmethod
+    def run_on(self, queries: pd.DataFrame, parallel_pool: Optional[Pool] = None):
+        &#34;&#34;&#34;
+        Run the pipeline on a DataFrame of query with, optionally, a parallel pool.
+
+        It is responsibility of the implementing class to decide how to use the parallel pool,
+        and check if the needed step are parallelizable (and how).
+
+        Args:
+            queries: queries DataFrame
+            parallel_pool: multiprocessing Pool
+
+        Returns:
+            A DataFrame of results conforming to pyterrier data model
+        &#34;&#34;&#34;
+        pass
+
+    def __call__(self, queries: pd.DataFrame, parallel_pool: Optional[Pool] = None) -&gt; pd.DataFrame:
+        &#34;&#34;&#34;Same as `run_on`&#34;&#34;&#34;
+        return self.run_on(queries, parallel_pool)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>abc.ABC</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="convSearchPython.pipelines.AbstractParallelPipeline" href="#convSearchPython.pipelines.AbstractParallelPipeline">AbstractParallelPipeline</a></li>
+<li><a title="convSearchPython.pipelines.factory.sub_index.SubIndexConversationSearcher" href="factory/sub_index.html#convSearchPython.pipelines.factory.sub_index.SubIndexConversationSearcher">SubIndexConversationSearcher</a></li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="convSearchPython.pipelines.Pipeline.name"><code class="name">var <span class="ident">name</span></code></dt>
+<dd>
+<div class="desc"><p>An easy-to-parse name for the pipeline that represents
+the various steps and their configuration</p>
+<p>Generally this should be implemented using a property</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+@abstractmethod
+def name(self):
+    &#34;&#34;&#34;
+    An easy-to-parse name for the pipeline that represents
+    the various steps and their configuration
+
+    Generally this should be implemented using a property
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="convSearchPython.pipelines.Pipeline.run_on"><code class="name flex">
+<span>def <span class="ident">run_on</span></span>(<span>self, queries: pandas.core.frame.DataFrame, parallel_pool: Optional[multiprocessing.pool.Pool] = None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Run the pipeline on a DataFrame of query with, optionally, a parallel pool.</p>
+<p>It is responsibility of the implementing class to decide how to use the parallel pool,
+and check if the needed step are parallelizable (and how).</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>queries</code></strong></dt>
+<dd>queries DataFrame</dd>
+<dt><strong><code>parallel_pool</code></strong></dt>
+<dd>multiprocessing Pool</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>A DataFrame of results conforming to pyterrier data model</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def run_on(self, queries: pd.DataFrame, parallel_pool: Optional[Pool] = None):
+    &#34;&#34;&#34;
+    Run the pipeline on a DataFrame of query with, optionally, a parallel pool.
+
+    It is responsibility of the implementing class to decide how to use the parallel pool,
+    and check if the needed step are parallelizable (and how).
+
+    Args:
+        queries: queries DataFrame
+        parallel_pool: multiprocessing Pool
+
+    Returns:
+        A DataFrame of results conforming to pyterrier data model
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="convSearchPython.pipelines.Pipeline.__call__"><code class="name flex">
+<span>def <span class="ident">__call__</span></span>(<span>self, queries: pandas.core.frame.DataFrame, parallel_pool: Optional[multiprocessing.pool.Pool] = None) ‑> pandas.core.frame.DataFrame</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Same as <code>run_on</code></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __call__(self, queries: pd.DataFrame, parallel_pool: Optional[Pool] = None) -&gt; pd.DataFrame:
+    &#34;&#34;&#34;Same as `run_on`&#34;&#34;&#34;
+    return self.run_on(queries, parallel_pool)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="convSearchPython.pipelines.AbstractParallelPipeline"><code class="flex name class">
+<span>class <span class="ident">AbstractParallelPipeline</span></span>
+<span>(</span><span>**kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Abstract class to help to implement a parallel pipeline.</p>
+<p>It provides two private methods, <code>_parallel_run</code> and <code>conv_parallel_run</code>
+that can be used by subclasses to parallelize a step of the pipeline.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>**kwargs</code></strong></dt>
+<dd>extra unused parameters</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class AbstractParallelPipeline(Pipeline, ABC):
+    &#34;&#34;&#34;
+    Abstract class to help to implement a parallel pipeline.
+
+    It provides two private methods, `_parallel_run` and `conv_parallel_run`
+    that can be used by subclasses to parallelize a step of the pipeline.
+    &#34;&#34;&#34;
+
+    @staticmethod
+    def _parallel_run(step: Callable[[pd.DataFrame], pd.DataFrame],
+                      pool: Pool,
+                      data: pd.DataFrame,
+                      split_n: int = None) -&gt; pd.DataFrame:
+        &#34;&#34;&#34;
+        Run a pipeline step on a parallel pool.
+
+        Note: this method do not consider the existence of conversations
+        when dividing the data.
+        Args:
+            step: the callable step, must accept a DataFrame and return a DataFrame
+            pool: the multiprocessing parallel pool
+            data: the data (queries or results) to split
+            split_n: (optional) if provided, number of (almost) equals parts to divide data in
+
+        Returns:
+            The resulting DataFrame
+        &#34;&#34;&#34;
+        if split_n is None:
+            # try to find the level of parallelism
+            n = getattr(pool, &#39;_processes&#39;, None)
+            if (n is None) or (not isinstance(n, int)) or (n &lt;= 0):
+                split_n = math.floor(len(data) / 20)
+            else:
+                chunk_size = len(data) / (n * 2)
+                if chunk_size &lt; 10:
+                    chunk_size = 10
+                elif chunk_size &gt; 50:
+                    chunk_size = 50
+                split_n = math.floor(len(data) / chunk_size)
+
+        parts_iterable = pool.imap(step, array_split(data, split_n))
+        return pd.concat(parts_iterable)
+
+    @staticmethod
+    def _conv_parallel_run(step: Callable[[pd.DataFrame], pd.DataFrame],
+                           pool: Pool,
+                           data: pd.DataFrame,
+                           conversations: Conversations) -&gt; pd.DataFrame:
+        &#34;&#34;&#34;
+        Run a pipeline step on a parallel pool dividing data by conversation.
+        Args:
+            step: the callable step, must accept a DataFrame and return a DataFrame
+            pool: the multiprocessing parallel pool
+            data: the data (queries or results) to split
+            conversations: conversations structure
+
+        Returns:
+            The resulting DataFrame
+        &#34;&#34;&#34;
+        conv_iterator = queries_conversation_splitter(data, conversations)
+        parts_iterator = pool.imap(step, conv_iterator)
+        return pd.concat(parts_iterator)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="convSearchPython.pipelines.Pipeline" href="#convSearchPython.pipelines.Pipeline">Pipeline</a></li>
+<li>abc.ABC</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="convSearchPython.pipelines.ChainPipeline" href="#convSearchPython.pipelines.ChainPipeline">ChainPipeline</a></li>
+<li><a title="convSearchPython.pipelines.baselines.PlainBM25Pipeline" href="baselines.html#convSearchPython.pipelines.baselines.PlainBM25Pipeline">PlainBM25Pipeline</a></li>
+<li><a title="convSearchPython.pipelines.baselines.PlainPipeline" href="baselines.html#convSearchPython.pipelines.baselines.PlainPipeline">PlainPipeline</a></li>
+<li><a title="convSearchPython.pipelines.bottom_up.BottomUpUamPipeline" href="bottom_up.html#convSearchPython.pipelines.bottom_up.BottomUpUamPipeline">BottomUpUamPipeline</a></li>
+</ul>
+<h3>Static methods</h3>
+<dl>
+<dt id="convSearchPython.pipelines.AbstractParallelPipeline._parallel_run"><code class="name flex">
+<span>def <span class="ident">_parallel_run</span></span>(<span>step: Callable[[pandas.core.frame.DataFrame], pandas.core.frame.DataFrame], pool: multiprocessing.pool.Pool, data: pandas.core.frame.DataFrame, split_n: int = None) ‑> pandas.core.frame.DataFrame</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Run a pipeline step on a parallel pool.</p>
+<p>Note: this method do not consider the existence of conversations
+when dividing the data.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>step</code></strong></dt>
+<dd>the callable step, must accept a DataFrame and return a DataFrame</dd>
+<dt><strong><code>pool</code></strong></dt>
+<dd>the multiprocessing parallel pool</dd>
+<dt><strong><code>data</code></strong></dt>
+<dd>the data (queries or results) to split</dd>
+<dt><strong><code>split_n</code></strong></dt>
+<dd>(optional) if provided, number of (almost) equals parts to divide data in</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>The resulting DataFrame</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def _parallel_run(step: Callable[[pd.DataFrame], pd.DataFrame],
+                  pool: Pool,
+                  data: pd.DataFrame,
+                  split_n: int = None) -&gt; pd.DataFrame:
+    &#34;&#34;&#34;
+    Run a pipeline step on a parallel pool.
+
+    Note: this method do not consider the existence of conversations
+    when dividing the data.
+    Args:
+        step: the callable step, must accept a DataFrame and return a DataFrame
+        pool: the multiprocessing parallel pool
+        data: the data (queries or results) to split
+        split_n: (optional) if provided, number of (almost) equals parts to divide data in
+
+    Returns:
+        The resulting DataFrame
+    &#34;&#34;&#34;
+    if split_n is None:
+        # try to find the level of parallelism
+        n = getattr(pool, &#39;_processes&#39;, None)
+        if (n is None) or (not isinstance(n, int)) or (n &lt;= 0):
+            split_n = math.floor(len(data) / 20)
+        else:
+            chunk_size = len(data) / (n * 2)
+            if chunk_size &lt; 10:
+                chunk_size = 10
+            elif chunk_size &gt; 50:
+                chunk_size = 50
+            split_n = math.floor(len(data) / chunk_size)
+
+    parts_iterable = pool.imap(step, array_split(data, split_n))
+    return pd.concat(parts_iterable)</code></pre>
+</details>
+</dd>
+<dt id="convSearchPython.pipelines.AbstractParallelPipeline._conv_parallel_run"><code class="name flex">
+<span>def <span class="ident">_conv_parallel_run</span></span>(<span>step: Callable[[pandas.core.frame.DataFrame], pandas.core.frame.DataFrame], pool: multiprocessing.pool.Pool, data: pandas.core.frame.DataFrame, conversations: Dict[str, List[str]]) ‑> pandas.core.frame.DataFrame</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Run a pipeline step on a parallel pool dividing data by conversation.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>step</code></strong></dt>
+<dd>the callable step, must accept a DataFrame and return a DataFrame</dd>
+<dt><strong><code>pool</code></strong></dt>
+<dd>the multiprocessing parallel pool</dd>
+<dt><strong><code>data</code></strong></dt>
+<dd>the data (queries or results) to split</dd>
+<dt><strong><code>conversations</code></strong></dt>
+<dd>conversations structure</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>The resulting DataFrame</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def _conv_parallel_run(step: Callable[[pd.DataFrame], pd.DataFrame],
+                       pool: Pool,
+                       data: pd.DataFrame,
+                       conversations: Conversations) -&gt; pd.DataFrame:
+    &#34;&#34;&#34;
+    Run a pipeline step on a parallel pool dividing data by conversation.
+    Args:
+        step: the callable step, must accept a DataFrame and return a DataFrame
+        pool: the multiprocessing parallel pool
+        data: the data (queries or results) to split
+        conversations: conversations structure
+
+    Returns:
+        The resulting DataFrame
+    &#34;&#34;&#34;
+    conv_iterator = queries_conversation_splitter(data, conversations)
+    parts_iterator = pool.imap(step, conv_iterator)
+    return pd.concat(parts_iterator)</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="convSearchPython.pipelines.Pipeline" href="#convSearchPython.pipelines.Pipeline">Pipeline</a></b></code>:
+<ul class="hlist">
+<li><code><a title="convSearchPython.pipelines.Pipeline.__call__" href="#convSearchPython.pipelines.Pipeline.__call__">__call__</a></code></li>
+<li><code><a title="convSearchPython.pipelines.Pipeline.name" href="#convSearchPython.pipelines.Pipeline.name">name</a></code></li>
+<li><code><a title="convSearchPython.pipelines.Pipeline.run_on" href="#convSearchPython.pipelines.Pipeline.run_on">run_on</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="convSearchPython.pipelines.StepType"><code class="flex name class">
+<span>class <span class="ident">StepType</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Enum that define the type of a Step instance.
+In particular, it provides insight on the parallelizability
+of a Step.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class StepType(Enum):
+    &#34;&#34;&#34;
+    Enum that define the type of a Step instance.
+    In particular, it provides insight on the parallelizability
+    of a Step.
+    &#34;&#34;&#34;
+
+    #: Step that can be fully parallelized regardless of conversations
+    FULLY_PARALLEL = auto()
+
+    #: Step that must be executed sequentially on every conversation
+    #: but can be parallelized between different ones
+    CONVERSATIONALLY_PARALLEL = auto()
+
+    #: Step that must be executed sequentially on the main process
+    SEQUENTIAL = auto()</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="convSearchPython.pipelines.StepType.FULLY_PARALLEL"><code class="name">var <span class="ident">FULLY_PARALLEL</span></code></dt>
+<dd>
+<div class="desc"><p>Step that can be fully parallelized regardless of conversations</p></div>
+</dd>
+<dt id="convSearchPython.pipelines.StepType.CONVERSATIONALLY_PARALLEL"><code class="name">var <span class="ident">CONVERSATIONALLY_PARALLEL</span></code></dt>
+<dd>
+<div class="desc"><p>Step that must be executed sequentially on every conversation
+but can be parallelized between different ones</p></div>
+</dd>
+<dt id="convSearchPython.pipelines.StepType.SEQUENTIAL"><code class="name">var <span class="ident">SEQUENTIAL</span></code></dt>
+<dd>
+<div class="desc"><p>Step that must be executed sequentially on the main process</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="convSearchPython.pipelines.Step"><code class="flex name class">
+<span>class <span class="ident">Step</span></span>
+<span>(</span><span>**kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Class that represent a generic pipeline step</p>
+<p>Implementation may want to override:</p>
+<ul>
+<li><code>name</code> to provide a representative name for the step and its parameters</li>
+<li><code>cleanup()</code> to clean cached objects after the execution</li>
+</ul>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>**kwargs</code></strong></dt>
+<dd>extra unused arguments</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Step(ABC):
+    &#34;&#34;&#34;
+    Class that represent a generic pipeline step
+
+    Implementation may want to override:
+
+    - `name` to provide a representative name for the step and its parameters
+    - `cleanup()` to clean cached objects after the execution
+    &#34;&#34;&#34;
+
+    def __init__(self, **kwargs):
+        &#34;&#34;&#34;
+        Args:
+            **kwargs: extra unused arguments
+        &#34;&#34;&#34;
+        pass
+
+    @property
+    def name(self) -&gt; str:
+        &#34;&#34;&#34;
+        Representative name of the Step
+        &#34;&#34;&#34;
+        return self.__class__.__name__
+
+    @property
+    @abstractmethod
+    def type(self) -&gt; StepType:
+        &#34;&#34;&#34;
+        Type of the Step
+        &#34;&#34;&#34;
+        pass
+
+    def cleanup(self):
+        &#34;&#34;&#34;
+        Clean eventual cached objects after the step execution.
+
+        By default, is a no-op but can be overridden by implementations.
+        &#34;&#34;&#34;
+        pass
+
+    @abstractmethod
+    def __call__(self, queries_or_results: pd.DataFrame) -&gt; pd.DataFrame:
+        &#34;&#34;&#34;
+        Apply this step on a DataFrame
+        Args:
+            queries_or_results: input DataFrame on witch apply this step
+
+        Returns:
+            The resulting DataFrame
+        &#34;&#34;&#34;
+        pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>abc.ABC</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="convSearchPython.pipelines.Model" href="#convSearchPython.pipelines.Model">Model</a></li>
+<li><a title="convSearchPython.pipelines.RM3" href="#convSearchPython.pipelines.RM3">RM3</a></li>
+<li><a title="convSearchPython.pipelines.Reranker" href="#convSearchPython.pipelines.Reranker">Reranker</a></li>
+<li><a title="convSearchPython.pipelines.Rewriter" href="#convSearchPython.pipelines.Rewriter">Rewriter</a></li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="convSearchPython.pipelines.Step.name"><code class="name">var <span class="ident">name</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Representative name of the Step</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def name(self) -&gt; str:
+    &#34;&#34;&#34;
+    Representative name of the Step
+    &#34;&#34;&#34;
+    return self.__class__.__name__</code></pre>
+</details>
+</dd>
+<dt id="convSearchPython.pipelines.Step.type"><code class="name">var <span class="ident">type</span> : <a title="convSearchPython.pipelines.StepType" href="#convSearchPython.pipelines.StepType">StepType</a></code></dt>
+<dd>
+<div class="desc"><p>Type of the Step</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+@abstractmethod
+def type(self) -&gt; StepType:
+    &#34;&#34;&#34;
+    Type of the Step
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="convSearchPython.pipelines.Step.cleanup"><code class="name flex">
+<span>def <span class="ident">cleanup</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Clean eventual cached objects after the step execution.</p>
+<p>By default, is a no-op but can be overridden by implementations.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def cleanup(self):
+    &#34;&#34;&#34;
+    Clean eventual cached objects after the step execution.
+
+    By default, is a no-op but can be overridden by implementations.
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="convSearchPython.pipelines.Step.__call__"><code class="name flex">
+<span>def <span class="ident">__call__</span></span>(<span>self, queries_or_results: pandas.core.frame.DataFrame) ‑> pandas.core.frame.DataFrame</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Apply this step on a DataFrame</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>queries_or_results</code></strong></dt>
+<dd>input DataFrame on witch apply this step</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>The resulting DataFrame</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def __call__(self, queries_or_results: pd.DataFrame) -&gt; pd.DataFrame:
+    &#34;&#34;&#34;
+    Apply this step on a DataFrame
+    Args:
+        queries_or_results: input DataFrame on witch apply this step
+
+    Returns:
+        The resulting DataFrame
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="convSearchPython.pipelines.Rewriter"><code class="flex name class">
+<span>class <span class="ident">Rewriter</span></span>
+<span>(</span><span>**kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A Rewriter is a special case of pipeline step that rewrite
+the query formulations passed in input.</p>
+<p>Subclasses must implement the <code>rewrite</code> method.
+This class override the <code>__call__</code> method, so it uses <code>rewrite</code> internally.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>**kwargs</code></strong></dt>
+<dd>extra unused arguments</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Rewriter(Step, ABC):
+    &#34;&#34;&#34;
+    A Rewriter is a special case of pipeline step that rewrite
+    the query formulations passed in input.
+
+    Subclasses must implement the `rewrite` method.
+    This class override the `__call__` method, so it uses `rewrite` internally.
+    &#34;&#34;&#34;
+
+    @abstractmethod
+    def rewrite(self, queries: pd.DataFrame) -&gt; pd.DataFrame:
+        &#34;&#34;&#34;
+        Rewrite input queries.
+
+        The result must conform to the pyterrier data model.
+        So the old &#34;query&#34; column must be renamed &#34;query_n&#34; where
+        n is the number of the formulation (starting with 0).
+
+        Example: if the input already contains a &#34;query_0&#34; column,
+        the &#34;query&#34; column must be renamed &#34;query_1&#34; and a new
+        &#34;query&#34; column must be added with rewritten queries.
+
+        Args:
+            queries: input queries DataFrame
+
+        Returns:
+            DataFrame with rewritten queries
+        &#34;&#34;&#34;
+        pass
+
+    def __call__(self, queries: pd.DataFrame) -&gt; pd.DataFrame:
+        return self.rewrite(queries)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="convSearchPython.pipelines.Step" href="#convSearchPython.pipelines.Step">Step</a></li>
+<li>abc.ABC</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="convSearchPython.searching.rewriter.concat_query.ConcatQueryRewriter" href="../searching/rewriter/concat_query.html#convSearchPython.searching.rewriter.concat_query.ConcatQueryRewriter">ConcatQueryRewriter</a></li>
+<li><a title="convSearchPython.searching.rewriter.context_query.ContextQueryRewriter" href="../searching/rewriter/context_query.html#convSearchPython.searching.rewriter.context_query.ContextQueryRewriter">ContextQueryRewriter</a></li>
+<li><a title="convSearchPython.searching.rewriter.coref_query.AllennlpCoreferenceQueryRewriter" href="../searching/rewriter/coref_query.html#convSearchPython.searching.rewriter.coref_query.AllennlpCoreferenceQueryRewriter">AllennlpCoreferenceQueryRewriter</a></li>
+<li><a title="convSearchPython.searching.rewriter.dbpedia.DbPediaRewriter" href="../searching/rewriter/dbpedia.html#convSearchPython.searching.rewriter.dbpedia.DbPediaRewriter">DbPediaRewriter</a></li>
+<li><a title="convSearchPython.searching.rewriter.first_query.FirstQueryRewriter" href="../searching/rewriter/first_query.html#convSearchPython.searching.rewriter.first_query.FirstQueryRewriter">FirstQueryRewriter</a></li>
+<li><a title="convSearchPython.searching.rewriter.historical_query.HistoricalQueryRewriter" href="../searching/rewriter/historical_query.html#convSearchPython.searching.rewriter.historical_query.HistoricalQueryRewriter">HistoricalQueryRewriter</a></li>
+<li><a title="convSearchPython.searching.rewriter.historical_query_v2.HQERewriter" href="../searching/rewriter/historical_query_v2.html#convSearchPython.searching.rewriter.historical_query_v2.HQERewriter">HQERewriter</a></li>
+<li><a title="convSearchPython.searching.rewriter.neuralcoref_coref_query.NeuralCorefRewriter" href="../searching/rewriter/neuralcoref_coref_query.html#convSearchPython.searching.rewriter.neuralcoref_coref_query.NeuralCorefRewriter">NeuralCorefRewriter</a></li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="convSearchPython.pipelines.Rewriter.rewrite"><code class="name flex">
+<span>def <span class="ident">rewrite</span></span>(<span>self, queries: pandas.core.frame.DataFrame) ‑> pandas.core.frame.DataFrame</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Rewrite input queries.</p>
+<p>The result must conform to the pyterrier data model.
+So the old "query" column must be renamed "query_n" where
+n is the number of the formulation (starting with 0).</p>
+<p>Example: if the input already contains a "query_0" column,
+the "query" column must be renamed "query_1" and a new
+"query" column must be added with rewritten queries.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>queries</code></strong></dt>
+<dd>input queries DataFrame</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>DataFrame with rewritten queries</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def rewrite(self, queries: pd.DataFrame) -&gt; pd.DataFrame:
+    &#34;&#34;&#34;
+    Rewrite input queries.
+
+    The result must conform to the pyterrier data model.
+    So the old &#34;query&#34; column must be renamed &#34;query_n&#34; where
+    n is the number of the formulation (starting with 0).
+
+    Example: if the input already contains a &#34;query_0&#34; column,
+    the &#34;query&#34; column must be renamed &#34;query_1&#34; and a new
+    &#34;query&#34; column must be added with rewritten queries.
+
+    Args:
+        queries: input queries DataFrame
+
+    Returns:
+        DataFrame with rewritten queries
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="convSearchPython.pipelines.Step" href="#convSearchPython.pipelines.Step">Step</a></b></code>:
+<ul class="hlist">
+<li><code><a title="convSearchPython.pipelines.Step.__call__" href="#convSearchPython.pipelines.Step.__call__">__call__</a></code></li>
+<li><code><a title="convSearchPython.pipelines.Step.cleanup" href="#convSearchPython.pipelines.Step.cleanup">cleanup</a></code></li>
+<li><code><a title="convSearchPython.pipelines.Step.name" href="#convSearchPython.pipelines.Step.name">name</a></code></li>
+<li><code><a title="convSearchPython.pipelines.Step.type" href="#convSearchPython.pipelines.Step.type">type</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="convSearchPython.pipelines.Reranker"><code class="flex name class">
+<span>class <span class="ident">Reranker</span></span>
+<span>(</span><span>**kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A Rewriter is a special case of pipeline step that rerank
+the documents and produce a newly ordered results DataFrame.</p>
+<p>Subclasses must implement the <code>rerank</code> method.
+This class override the <code>__call__</code> method, so it uses <code>rerank</code> internally.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>**kwargs</code></strong></dt>
+<dd>extra unused arguments</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Reranker(Step, ABC):
+    &#34;&#34;&#34;
+    A Rewriter is a special case of pipeline step that rerank
+    the documents and produce a newly ordered results DataFrame.
+
+    Subclasses must implement the `rerank` method.
+    This class override the `__call__` method, so it uses `rerank` internally.
+    &#34;&#34;&#34;
+
+    @abstractmethod
+    def rerank(self, results: pd.DataFrame) -&gt; pd.DataFrame:
+        &#34;&#34;&#34;
+        Rewrite input queries.
+
+        The result must conform to the pyterrier data model.
+        So the content of the &#34;score&#34; column must be updated.
+
+        It is responsibility of the rewriter to check if multiple
+        conversations were passed as inputs and act according, and
+        to sort the resulting DataFrame before returning it.
+
+        Args:
+            results: input results DataFrame
+
+        Returns:
+            DataFrame reordered and with updated scores
+        &#34;&#34;&#34;
+        pass
+
+    def __call__(self, results: pd.DataFrame) -&gt; pd.DataFrame:
+        return self.rerank(results)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="convSearchPython.pipelines.Step" href="#convSearchPython.pipelines.Step">Step</a></li>
+<li>abc.ABC</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="convSearchPython.ranking.bottom_up_filter.BottomUpReranker" href="../ranking/bottom_up_filter.html#convSearchPython.ranking.bottom_up_filter.BottomUpReranker">BottomUpReranker</a></li>
+<li><a title="convSearchPython.ranking.historical_answer.HAEReranker" href="../ranking/historical_answer.html#convSearchPython.ranking.historical_answer.HAEReranker">HAEReranker</a></li>
+<li><a title="convSearchPython.ranking.seen_docs_filter.SeenFilterReranker" href="../ranking/seen_docs_filter.html#convSearchPython.ranking.seen_docs_filter.SeenFilterReranker">SeenFilterReranker</a></li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="convSearchPython.pipelines.Reranker.rerank"><code class="name flex">
+<span>def <span class="ident">rerank</span></span>(<span>self, results: pandas.core.frame.DataFrame) ‑> pandas.core.frame.DataFrame</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Rewrite input queries.</p>
+<p>The result must conform to the pyterrier data model.
+So the content of the "score" column must be updated.</p>
+<p>It is responsibility of the rewriter to check if multiple
+conversations were passed as inputs and act according, and
+to sort the resulting DataFrame before returning it.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>results</code></strong></dt>
+<dd>input results DataFrame</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>DataFrame reordered and with updated scores</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def rerank(self, results: pd.DataFrame) -&gt; pd.DataFrame:
+    &#34;&#34;&#34;
+    Rewrite input queries.
+
+    The result must conform to the pyterrier data model.
+    So the content of the &#34;score&#34; column must be updated.
+
+    It is responsibility of the rewriter to check if multiple
+    conversations were passed as inputs and act according, and
+    to sort the resulting DataFrame before returning it.
+
+    Args:
+        results: input results DataFrame
+
+    Returns:
+        DataFrame reordered and with updated scores
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="convSearchPython.pipelines.Step" href="#convSearchPython.pipelines.Step">Step</a></b></code>:
+<ul class="hlist">
+<li><code><a title="convSearchPython.pipelines.Step.__call__" href="#convSearchPython.pipelines.Step.__call__">__call__</a></code></li>
+<li><code><a title="convSearchPython.pipelines.Step.cleanup" href="#convSearchPython.pipelines.Step.cleanup">cleanup</a></code></li>
+<li><code><a title="convSearchPython.pipelines.Step.name" href="#convSearchPython.pipelines.Step.name">name</a></code></li>
+<li><code><a title="convSearchPython.pipelines.Step.type" href="#convSearchPython.pipelines.Step.type">type</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="convSearchPython.pipelines.Model"><code class="flex name class">
+<span>class <span class="ident">Model</span></span>
+<span>(</span><span>wmodel: str, controls: Dict[str, Any], index: str, metadata: List[str], **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Wrapper for BatchRetrieve</p>
+<p>Note: mu control, when wmodel is DirichletLM, is renamed to c for convenience</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>wmodel</code></strong></dt>
+<dd>model name (ex. BM25)</dd>
+<dt><strong><code>controls</code></strong></dt>
+<dd>model controls</dd>
+<dt><strong><code>index</code></strong></dt>
+<dd>index name</dd>
+<dt><strong><code>metadata</code></strong></dt>
+<dd>metadata list</dd>
+<dt><strong><code>**kwargs</code></strong></dt>
+<dd>extra unused arguments</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Model(Step):
+    &#34;&#34;&#34;
+    Wrapper for BatchRetrieve
+
+    Note: mu control, when wmodel is DirichletLM, is renamed to c for convenience
+    &#34;&#34;&#34;
+
+    def __init__(self, wmodel: str, controls: Dict[str, Any], index: str, metadata: List[str], **kwargs):
+        &#34;&#34;&#34;
+        Args:
+            wmodel: model name (ex. BM25)
+            controls: model controls
+            index: index name
+            metadata: metadata list
+            **kwargs: extra unused arguments
+        &#34;&#34;&#34;
+        super().__init__(**kwargs)
+        self._wmodel = wmodel
+        if wmodel == &#39;DirichletLM&#39; and &#39;mu&#39; in controls:
+            controls[&#39;c&#39;] = controls.pop(&#39;mu&#39;)
+        self._num_results = 1000
+        if &#39;num_results&#39; in controls:
+            self._num_results = controls.pop(&#39;num_results&#39;)
+        self._controls = controls
+        self._index = index
+        self._metadata = metadata
+
+        self._br = None
+
+    @property
+    def wmodel(self):
+        return self._wmodel
+
+    @property
+    def controls(self):
+        return self._controls.copy()
+
+    @property
+    def name(self) -&gt; str:
+        parts = [self.wmodel]
+        for key, value in self._controls.items():
+            if key == &#39;num_results&#39;:
+                key = &#39;n&#39;
+            parts.append(f&#39;{key}={value}&#39;)
+        return &#39;-&#39;.join(parts)
+
+    @property
+    def type(self) -&gt; StepType:
+        return StepType.FULLY_PARALLEL
+
+    def cleanup(self):
+        self._br = None
+
+    def _batch_retrieve(self):
+        index_conf = IndexConf.load_index(self._index)
+        return pt.BatchRetrieve(index_conf.index,
+                                wmodel=&#34;DirichletLM&#34;,
+                                controls=self._controls,
+                                properties=index_conf.properties,
+                                metadata=self._metadata,
+                                num_results=self._num_results)
+
+    def __call__(self, queries: pd.DataFrame) -&gt; pd.DataFrame:
+        if self._br is None:
+            self._br = self._batch_retrieve()
+        return self._br(queries)
+
+    def __getstate__(self):
+        return self._wmodel, self._controls, self._index, self._metadata
+
+    def __setstate__(self, state):
+        self._wmodel, self._controls, self._index, self._metadata = state
+        self._br = None</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="convSearchPython.pipelines.Step" href="#convSearchPython.pipelines.Step">Step</a></li>
+<li>abc.ABC</li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="convSearchPython.pipelines.Model.wmodel"><code class="name">var <span class="ident">wmodel</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def wmodel(self):
+    return self._wmodel</code></pre>
+</details>
+</dd>
+<dt id="convSearchPython.pipelines.Model.controls"><code class="name">var <span class="ident">controls</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def controls(self):
+    return self._controls.copy()</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="convSearchPython.pipelines.Step" href="#convSearchPython.pipelines.Step">Step</a></b></code>:
+<ul class="hlist">
+<li><code><a title="convSearchPython.pipelines.Step.__call__" href="#convSearchPython.pipelines.Step.__call__">__call__</a></code></li>
+<li><code><a title="convSearchPython.pipelines.Step.cleanup" href="#convSearchPython.pipelines.Step.cleanup">cleanup</a></code></li>
+<li><code><a title="convSearchPython.pipelines.Step.name" href="#convSearchPython.pipelines.Step.name">name</a></code></li>
+<li><code><a title="convSearchPython.pipelines.Step.type" href="#convSearchPython.pipelines.Step.type">type</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="convSearchPython.pipelines.RM3"><code class="flex name class">
+<span>class <span class="ident">RM3</span></span>
+<span>(</span><span>index: str, fb_terms: int = 20, fb_docs: int = 20, fb_lambda: float = 0.5, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Wrapper for RM3</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>index</code></strong></dt>
+<dd>index name</dd>
+<dt><strong><code>fb_terms</code></strong></dt>
+<dd>number of terms</dd>
+<dt><strong><code>fb_docs</code></strong></dt>
+<dd>number of docs</dd>
+<dt><strong><code>fb_lambda</code></strong></dt>
+<dd>rm3 parameter</dd>
+<dt><strong><code>**kwargs</code></strong></dt>
+<dd>extra unused arguments</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class RM3(Step):
+    &#34;&#34;&#34;
+    Wrapper for RM3
+    &#34;&#34;&#34;
+
+    def __init__(self, index: str, fb_terms: int = 20, fb_docs: int = 20, fb_lambda: float = 0.5, **kwargs):
+        &#34;&#34;&#34;
+        Args:
+            index: index name
+            fb_terms: number of terms
+            fb_docs: number of docs
+            fb_lambda: rm3 parameter
+            **kwargs: extra unused arguments
+        &#34;&#34;&#34;
+        super().__init__(**kwargs)
+        self._index = index
+        self._fb_terms = fb_terms
+        self._fb_docs = fb_docs
+        self._fb_lambda = fb_lambda
+
+        self._rm3 = None
+
+    @property
+    def fb_terms(self):
+        return self._fb_terms
+
+    @property
+    def fb_docs(self):
+        return self._fb_docs
+
+    @property
+    def fb_lambda(self):
+        return self._fb_lambda
+
+    @property
+    def name(self):
+        return f&#39;rm3-t{self.fb_terms}-d{self.fb_docs}-l{self.fb_lambda}&#39;
+
+    @property
+    def type(self) -&gt; StepType:
+        return StepType.FULLY_PARALLEL
+
+    def cleanup(self):
+        self._rm3 = None
+
+    def _get_rm3(self):
+        index_conf = IndexConf.load_index(self._index)
+        return pt.rewrite.RM3(index_conf.index,
+                              fb_terms=self._fb_terms,
+                              fb_docs=self._fb_docs,
+                              fb_lambda=self._fb_lambda)
+
+    def __call__(self, results: pd.DataFrame) -&gt; pd.DataFrame:
+        if self._rm3 is None:
+            self._rm3 = self._get_rm3()
+        return self._rm3(results)
+
+    def __getstate__(self):
+        return self._fb_terms, self._fb_docs, self._fb_lambda, self._index
+
+    def __setstate__(self, state):
+        self._fb_terms, self._fb_docs, self._fb_lambda, self._index = state
+        self._rm3 = None</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="convSearchPython.pipelines.Step" href="#convSearchPython.pipelines.Step">Step</a></li>
+<li>abc.ABC</li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="convSearchPython.pipelines.RM3.fb_terms"><code class="name">var <span class="ident">fb_terms</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def fb_terms(self):
+    return self._fb_terms</code></pre>
+</details>
+</dd>
+<dt id="convSearchPython.pipelines.RM3.fb_docs"><code class="name">var <span class="ident">fb_docs</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def fb_docs(self):
+    return self._fb_docs</code></pre>
+</details>
+</dd>
+<dt id="convSearchPython.pipelines.RM3.fb_lambda"><code class="name">var <span class="ident">fb_lambda</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def fb_lambda(self):
+    return self._fb_lambda</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="convSearchPython.pipelines.Step" href="#convSearchPython.pipelines.Step">Step</a></b></code>:
+<ul class="hlist">
+<li><code><a title="convSearchPython.pipelines.Step.__call__" href="#convSearchPython.pipelines.Step.__call__">__call__</a></code></li>
+<li><code><a title="convSearchPython.pipelines.Step.cleanup" href="#convSearchPython.pipelines.Step.cleanup">cleanup</a></code></li>
+<li><code><a title="convSearchPython.pipelines.Step.name" href="#convSearchPython.pipelines.Step.name">name</a></code></li>
+<li><code><a title="convSearchPython.pipelines.Step.type" href="#convSearchPython.pipelines.Step.type">type</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="convSearchPython.pipelines.ChainPipeline"><code class="flex name class">
+<span>class <span class="ident">ChainPipeline</span></span>
+<span>(</span><span>steps: Iterable[<a title="convSearchPython.pipelines.Step" href="#convSearchPython.pipelines.Step">Step</a>], name: str, conversations: Dict[str, List[str]], **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Pipeline that combine already constructed steps.</p>
+<p>While the main use is to combine objects that subclass <code><a title="convSearchPython.pipelines.Step" href="#convSearchPython.pipelines.Step">Step</a></code>,
+this class will work with any Step-like object that act as
+<code>Callable[[DataFrame], DataFrame]</code>.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>steps</code></strong></dt>
+<dd>iterable of Step or Step-like objects</dd>
+<dt><strong><code>name</code></strong></dt>
+<dd>easy-to-parse pipeline name</dd>
+<dt><strong><code>conversations</code></strong></dt>
+<dd>(reserved argument) conversations structure</dd>
+<dt><strong><code>**kwargs</code></strong></dt>
+<dd>extra unused arguments</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ChainPipeline(AbstractParallelPipeline):
+    &#34;&#34;&#34;
+    Pipeline that combine already constructed steps.
+
+    While the main use is to combine objects that subclass `Step`,
+    this class will work with any Step-like object that act as
+    ```Callable[[DataFrame], DataFrame]```.
+    &#34;&#34;&#34;
+
+    def __init__(self, steps: Iterable[Step], name: str,
+                 conversations: Conversations, **kwargs):
+        &#34;&#34;&#34;
+        Args:
+            steps: iterable of Step or Step-like objects
+            name: easy-to-parse pipeline name
+            conversations: (reserved argument) conversations structure
+            **kwargs: extra unused arguments
+        &#34;&#34;&#34;
+        super().__init__(**kwargs)
+        self._name = name
+        self._conversations = conversations
+        self._steps = list(steps)
+        for s in steps:
+            if not callable(s):
+                raise ValueError(f&#39;step {s} is not callable&#39;)
+
+    @property
+    def steps(self) -&gt; List[Step]:
+        &#34;&#34;&#34;List of Step objects contained in this pipeline&#34;&#34;&#34;
+        return self._steps.copy()
+
+    @property
+    def name(self) -&gt; str:
+        &#34;&#34;&#34;Easy-to-parse pipeline name&#34;&#34;&#34;
+        return self._name
+
+    def run_on(self, queries: pd.DataFrame, parallel_pool: Optional[Pool] = None) -&gt; pd.DataFrame:
+        &#34;&#34;&#34;
+        Run the pipeline.
+
+        If a parallel pool is provided, then the steps are executed according to the following rules:
+
+        - If a step is of type `StepType.SEQUENTIAL`, then it&#39;s executed sequentially
+        outside the parallel pool
+        - If a step is of type `StepType.CONVERSATIONALLY_PARALLEL`, then it&#39;s
+        executed inside the parallel pool, dividing the input queries by conversation
+        - If neither of that applies, the step is executed inside the parallel pool
+        without regarding of the conversations
+
+        Args:
+            queries: input queries DataFrame
+            parallel_pool: optional parallel pool
+
+        Returns:
+            The resulting DataFrame
+        &#34;&#34;&#34;
+        data = queries
+
+        if parallel_pool is None:
+            for step in self._steps:
+                data = step(data)
+        else:
+            for step in self._steps:
+                type = getattr(step, &#39;type&#39;, StepType.FULLY_PARALLEL)
+                if type == StepType.SEQUENTIAL:
+                    data = step(data)
+                elif type == StepType.CONVERSATIONALLY_PARALLEL:
+                    data = self._conv_parallel_run(step, parallel_pool, data, self._conversations)
+                else:
+                    data = self._parallel_run(step, parallel_pool, data)
+
+                cleanup = getattr(step, &#39;cleanup&#39;, None)
+                if callable(cleanup):
+                    cleanup()
+
+        return data</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="convSearchPython.pipelines.AbstractParallelPipeline" href="#convSearchPython.pipelines.AbstractParallelPipeline">AbstractParallelPipeline</a></li>
+<li><a title="convSearchPython.pipelines.Pipeline" href="#convSearchPython.pipelines.Pipeline">Pipeline</a></li>
+<li>abc.ABC</li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="convSearchPython.pipelines.ChainPipeline.steps"><code class="name">var <span class="ident">steps</span> : List[<a title="convSearchPython.pipelines.Step" href="#convSearchPython.pipelines.Step">Step</a>]</code></dt>
+<dd>
+<div class="desc"><p>List of Step objects contained in this pipeline</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def steps(self) -&gt; List[Step]:
+    &#34;&#34;&#34;List of Step objects contained in this pipeline&#34;&#34;&#34;
+    return self._steps.copy()</code></pre>
+</details>
+</dd>
+<dt id="convSearchPython.pipelines.ChainPipeline.name"><code class="name">var <span class="ident">name</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Easy-to-parse pipeline name</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def name(self) -&gt; str:
+    &#34;&#34;&#34;Easy-to-parse pipeline name&#34;&#34;&#34;
+    return self._name</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="convSearchPython.pipelines.ChainPipeline.run_on"><code class="name flex">
+<span>def <span class="ident">run_on</span></span>(<span>self, queries: pandas.core.frame.DataFrame, parallel_pool: Optional[multiprocessing.pool.Pool] = None) ‑> pandas.core.frame.DataFrame</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Run the pipeline.</p>
+<p>If a parallel pool is provided, then the steps are executed according to the following rules:</p>
+<ul>
+<li>If a step is of type <code><a title="convSearchPython.pipelines.StepType.SEQUENTIAL" href="#convSearchPython.pipelines.StepType.SEQUENTIAL">StepType.SEQUENTIAL</a></code>, then it's executed sequentially
+outside the parallel pool</li>
+<li>If a step is of type <code><a title="convSearchPython.pipelines.StepType.CONVERSATIONALLY_PARALLEL" href="#convSearchPython.pipelines.StepType.CONVERSATIONALLY_PARALLEL">StepType.CONVERSATIONALLY_PARALLEL</a></code>, then it's
+executed inside the parallel pool, dividing the input queries by conversation</li>
+<li>If neither of that applies, the step is executed inside the parallel pool
+without regarding of the conversations</li>
+</ul>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>queries</code></strong></dt>
+<dd>input queries DataFrame</dd>
+<dt><strong><code>parallel_pool</code></strong></dt>
+<dd>optional parallel pool</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>The resulting DataFrame</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def run_on(self, queries: pd.DataFrame, parallel_pool: Optional[Pool] = None) -&gt; pd.DataFrame:
+    &#34;&#34;&#34;
+    Run the pipeline.
+
+    If a parallel pool is provided, then the steps are executed according to the following rules:
+
+    - If a step is of type `StepType.SEQUENTIAL`, then it&#39;s executed sequentially
+    outside the parallel pool
+    - If a step is of type `StepType.CONVERSATIONALLY_PARALLEL`, then it&#39;s
+    executed inside the parallel pool, dividing the input queries by conversation
+    - If neither of that applies, the step is executed inside the parallel pool
+    without regarding of the conversations
+
+    Args:
+        queries: input queries DataFrame
+        parallel_pool: optional parallel pool
+
+    Returns:
+        The resulting DataFrame
+    &#34;&#34;&#34;
+    data = queries
+
+    if parallel_pool is None:
+        for step in self._steps:
+            data = step(data)
+    else:
+        for step in self._steps:
+            type = getattr(step, &#39;type&#39;, StepType.FULLY_PARALLEL)
+            if type == StepType.SEQUENTIAL:
+                data = step(data)
+            elif type == StepType.CONVERSATIONALLY_PARALLEL:
+                data = self._conv_parallel_run(step, parallel_pool, data, self._conversations)
+            else:
+                data = self._parallel_run(step, parallel_pool, data)
+
+            cleanup = getattr(step, &#39;cleanup&#39;, None)
+            if callable(cleanup):
+                cleanup()
+
+    return data</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="convSearchPython.pipelines.AbstractParallelPipeline" href="#convSearchPython.pipelines.AbstractParallelPipeline">AbstractParallelPipeline</a></b></code>:
+<ul class="hlist">
+<li><code><a title="convSearchPython.pipelines.AbstractParallelPipeline.__call__" href="#convSearchPython.pipelines.Pipeline.__call__">__call__</a></code></li>
+<li><code><a title="convSearchPython.pipelines.AbstractParallelPipeline._conv_parallel_run" href="#convSearchPython.pipelines.AbstractParallelPipeline._conv_parallel_run">_conv_parallel_run</a></code></li>
+<li><code><a title="convSearchPython.pipelines.AbstractParallelPipeline._parallel_run" href="#convSearchPython.pipelines.AbstractParallelPipeline._parallel_run">_parallel_run</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="convSearchPython" href="../index.html">convSearchPython</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-submodules">Sub-modules</a></h3>
+<ul>
+<li><code><a title="convSearchPython.pipelines.baselines" href="baselines.html">convSearchPython.pipelines.baselines</a></code></li>
+<li><code><a title="convSearchPython.pipelines.bottom_up" href="bottom_up.html">convSearchPython.pipelines.bottom_up</a></code></li>
+<li><code><a title="convSearchPython.pipelines.dbpedia" href="dbpedia.html">convSearchPython.pipelines.dbpedia</a></code></li>
+<li><code><a title="convSearchPython.pipelines.factory" href="factory/index.html">convSearchPython.pipelines.factory</a></code></li>
+<li><code><a title="convSearchPython.pipelines.historical" href="historical.html">convSearchPython.pipelines.historical</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="convSearchPython.pipelines.IndexConf" href="#convSearchPython.pipelines.IndexConf">IndexConf</a></code></h4>
+<ul class="">
+<li><code><a title="convSearchPython.pipelines.IndexConf.load_index" href="#convSearchPython.pipelines.IndexConf.load_index">load_index</a></code></li>
+<li><code><a title="convSearchPython.pipelines.IndexConf.add_index" href="#convSearchPython.pipelines.IndexConf.add_index">add_index</a></code></li>
+<li><code><a title="convSearchPython.pipelines.IndexConf.remove_index" href="#convSearchPython.pipelines.IndexConf.remove_index">remove_index</a></code></li>
+<li><code><a title="convSearchPython.pipelines.IndexConf.index" href="#convSearchPython.pipelines.IndexConf.index">index</a></code></li>
+<li><code><a title="convSearchPython.pipelines.IndexConf.properties" href="#convSearchPython.pipelines.IndexConf.properties">properties</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="convSearchPython.pipelines.Pipeline" href="#convSearchPython.pipelines.Pipeline">Pipeline</a></code></h4>
+<ul class="">
+<li><code><a title="convSearchPython.pipelines.Pipeline.run_on" href="#convSearchPython.pipelines.Pipeline.run_on">run_on</a></code></li>
+<li><code><a title="convSearchPython.pipelines.Pipeline.__call__" href="#convSearchPython.pipelines.Pipeline.__call__">__call__</a></code></li>
+<li><code><a title="convSearchPython.pipelines.Pipeline.name" href="#convSearchPython.pipelines.Pipeline.name">name</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="convSearchPython.pipelines.AbstractParallelPipeline" href="#convSearchPython.pipelines.AbstractParallelPipeline">AbstractParallelPipeline</a></code></h4>
+<ul class="">
+<li><code><a title="convSearchPython.pipelines.AbstractParallelPipeline._parallel_run" href="#convSearchPython.pipelines.AbstractParallelPipeline._parallel_run">_parallel_run</a></code></li>
+<li><code><a title="convSearchPython.pipelines.AbstractParallelPipeline._conv_parallel_run" href="#convSearchPython.pipelines.AbstractParallelPipeline._conv_parallel_run">_conv_parallel_run</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="convSearchPython.pipelines.StepType" href="#convSearchPython.pipelines.StepType">StepType</a></code></h4>
+<ul class="">
+<li><code><a title="convSearchPython.pipelines.StepType.FULLY_PARALLEL" href="#convSearchPython.pipelines.StepType.FULLY_PARALLEL">FULLY_PARALLEL</a></code></li>
+<li><code><a title="convSearchPython.pipelines.StepType.CONVERSATIONALLY_PARALLEL" href="#convSearchPython.pipelines.StepType.CONVERSATIONALLY_PARALLEL">CONVERSATIONALLY_PARALLEL</a></code></li>
+<li><code><a title="convSearchPython.pipelines.StepType.SEQUENTIAL" href="#convSearchPython.pipelines.StepType.SEQUENTIAL">SEQUENTIAL</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="convSearchPython.pipelines.Step" href="#convSearchPython.pipelines.Step">Step</a></code></h4>
+<ul class="">
+<li><code><a title="convSearchPython.pipelines.Step.cleanup" href="#convSearchPython.pipelines.Step.cleanup">cleanup</a></code></li>
+<li><code><a title="convSearchPython.pipelines.Step.__call__" href="#convSearchPython.pipelines.Step.__call__">__call__</a></code></li>
+<li><code><a title="convSearchPython.pipelines.Step.name" href="#convSearchPython.pipelines.Step.name">name</a></code></li>
+<li><code><a title="convSearchPython.pipelines.Step.type" href="#convSearchPython.pipelines.Step.type">type</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="convSearchPython.pipelines.Rewriter" href="#convSearchPython.pipelines.Rewriter">Rewriter</a></code></h4>
+<ul class="">
+<li><code><a title="convSearchPython.pipelines.Rewriter.rewrite" href="#convSearchPython.pipelines.Rewriter.rewrite">rewrite</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="convSearchPython.pipelines.Reranker" href="#convSearchPython.pipelines.Reranker">Reranker</a></code></h4>
+<ul class="">
+<li><code><a title="convSearchPython.pipelines.Reranker.rerank" href="#convSearchPython.pipelines.Reranker.rerank">rerank</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="convSearchPython.pipelines.Model" href="#convSearchPython.pipelines.Model">Model</a></code></h4>
+<ul class="">
+<li><code><a title="convSearchPython.pipelines.Model.wmodel" href="#convSearchPython.pipelines.Model.wmodel">wmodel</a></code></li>
+<li><code><a title="convSearchPython.pipelines.Model.controls" href="#convSearchPython.pipelines.Model.controls">controls</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="convSearchPython.pipelines.RM3" href="#convSearchPython.pipelines.RM3">RM3</a></code></h4>
+<ul class="">
+<li><code><a title="convSearchPython.pipelines.RM3.fb_terms" href="#convSearchPython.pipelines.RM3.fb_terms">fb_terms</a></code></li>
+<li><code><a title="convSearchPython.pipelines.RM3.fb_docs" href="#convSearchPython.pipelines.RM3.fb_docs">fb_docs</a></code></li>
+<li><code><a title="convSearchPython.pipelines.RM3.fb_lambda" href="#convSearchPython.pipelines.RM3.fb_lambda">fb_lambda</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="convSearchPython.pipelines.ChainPipeline" href="#convSearchPython.pipelines.ChainPipeline">ChainPipeline</a></code></h4>
+<ul class="">
+<li><code><a title="convSearchPython.pipelines.ChainPipeline.run_on" href="#convSearchPython.pipelines.ChainPipeline.run_on">run_on</a></code></li>
+<li><code><a title="convSearchPython.pipelines.ChainPipeline.steps" href="#convSearchPython.pipelines.ChainPipeline.steps">steps</a></code></li>
+<li><code><a title="convSearchPython.pipelines.ChainPipeline.name" href="#convSearchPython.pipelines.ChainPipeline.name">name</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
